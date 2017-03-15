@@ -1,6 +1,0 @@
-com\gestionssii\dao\UserDaoImpl.class
-com\gestionssii\service\UserServiceImpl.class
-com\gestionssii\model\User.class
-com\gestionssii\controller\UserController.class
-com\gestionssii\dao\UserDao.class
-com\gestionssii\service\UserService.class
