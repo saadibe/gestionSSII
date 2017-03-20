@@ -23,3 +23,5 @@ require(
   ]
 );
 
+var host = {url:"http://localhost:8080/gestionssii/"};
+

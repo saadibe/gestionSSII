@@ -13,10 +13,13 @@
     <!-- Getting Database properties -->
     <context:property-placeholder location="classpath:application.properties" />
  
-
+    <mvc:annotation-driven />
+ 
     <!-- Specifying the Resource location to load JS, CSS, Images etc -->
     <mvc:resources mapping="/resources/**" location="/resources/" />
  
+    <!-- View Resolver -->
+    <mvc:default-servlet-handler/>
  
     <!-- DataSource -->
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
@@ -24,7 +27,7 @@
         <property name="driverClassName" value="${database.driver}"></property>
         <property name="url" value="jdbc:mysql://localhost:3306/gestion_ssii"></property>
         <property name="username" value="root"></property>
-        <property name="password" value="password"></property>
+        <property name="password" value="Saadi1911"></property>
     </bean>
  
     <!-- Hibernate SessionFactory -->
