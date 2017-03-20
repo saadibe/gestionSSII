@@ -15,8 +15,10 @@ require.config({
 
 require(
   ["jquery",
+   	"lib/handlebars",
     "lib/underscore",
     "lib/backbone",
+    "lib/text",
     "router"
   ]
 );

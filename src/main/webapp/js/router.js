@@ -1,12 +1,12 @@
-define(["lib/backbone","views/authentificationView"], function(Backbone) {
-		var AuthentificationView = require("views/authentificationView")
+define(["lib/backbone","views/authentificationView"], function(Backbone,AuthentificationView) {
 		Router = Backbone.Router.extend({
 			routes: {
 				'': 'index'
 			},
 
 			index: function(){
-				AuthentificationView.showMe();
+				var authentificationView = new AuthentificationView();
+				authentificationView.showMe();
 			}
 
 		});
