@@ -19,4 +19,10 @@ public class UserServiceImpl implements UserService {
 		return userdao.getUserById(userId);
 	}
 
+	@Transactional
+	public User getUserLogin(String login, String password) {
+		
+		return userdao.getUserLogin(login,password);
+	}
+
 }

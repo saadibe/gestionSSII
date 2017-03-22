@@ -1,5 +1,8 @@
 package com.gestionssii.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,4 +20,16 @@ public class UserDaoImpl implements UserDao {
 		return (User) sessionFactory.getCurrentSession().get(User.class, userId);
 	}
 
+	@Override
+	public User getUserLogin(String login, String password) {
+		String sql = " from users u where u.login=:login and u.password=:password";
+		Query query = sessionFactory.getCurrentSession().createQuery(sql);
+		query.setParameter("login", login);
+        query.setParameter("password", password);
+        List<User> list = query.list();
+        if (list.size() > 0) {
+            return list.get(0);
+        }
+		return null;
+	}
 }

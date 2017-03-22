@@ -6,10 +6,6 @@ define(['lib/handlebars','lib/backbone','lib/text!templates/authentification.hbs
         "click .js-login": "authentification",
     },
     
-    initialize: function(){
-        this.render();
-      },
-
     render: function() {
     var template = Handlebars.compile(template_auth);
       this.$el.html(template);
@@ -19,8 +15,11 @@ define(['lib/handlebars','lib/backbone','lib/text!templates/authentification.hbs
     authentification:function(event){
     	var login = $('input[name=login]')
     	var password = $('input[name=password]')
-    	var user = new User({login: login.val(),password:password.val()});
-    	user.fetch({ data: $.param({ id: 1}) });
+    	var user = new User({login:login,password:password});
+    	user.fetch({
+    			data: {login: login.val(),password:password.val()},
+    			traditional: true
+    		  })
     },
     showMe: function(){
   		this.render(); 
