@@ -4,6 +4,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gestionssii.DTO.UserDTO;
 import com.gestionssii.dao.UserDao;
 import com.gestionssii.model.User;
 import com.gestionssii.service.UserService;
@@ -15,14 +16,19 @@ public class UserServiceImpl implements UserService {
 	private UserDao userdao;
 
 	@Transactional
-	public User getUserById(int userId) {
-		return userdao.getUserById(userId);
+	public UserDTO getUserById(int userId) {
+		return new UserDTO();
 	}
 
 	@Transactional
-	public User getUserLogin(String login, String password) {
-		
-		return userdao.getUserLogin(login,password);
+	public UserDTO getUserLogin(String login, String password) {
+		UserDTO userdto = new UserDTO();
+		User user = userdao.getUserLogin(login, password);
+		if (user != null) {
+			userdto.setFirstName(user.getFirstName());
+			userdto.setLastName(user.getLastName());
+			userdto.setUserId(user.getUserId());
+		}
+		return userdto;
 	}
-
 }

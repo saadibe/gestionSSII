@@ -22,14 +22,14 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getUserLogin(String login, String password) {
-		String sql = " from users u where u.login=:login and u.password=:password";
+		String sql = " from User u where u.login=:login and u.password=:password";
 		Query query = sessionFactory.getCurrentSession().createQuery(sql);
 		query.setParameter("login", login);
-        query.setParameter("password", password);
-        List<User> list = query.list();
-        if (list.size() > 0) {
-            return list.get(0);
-        }
+		query.setParameter("password", password);
+		List<User> list = query.list();
+		if (list.size() > 0) {
+			return list.get(0);
+		}
 		return null;
 	}
 }

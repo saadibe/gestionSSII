@@ -29,6 +29,8 @@ public class User {
 	@Column
 	private String password;
 	@Column
+	private String login;
+	@Column
 	private String createDate;
 	@Column
 	private Date updateDate;
@@ -103,6 +105,14 @@ public class User {
 
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 }

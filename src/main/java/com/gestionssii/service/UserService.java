@@ -1,11 +1,12 @@
 package com.gestionssii.service;
 
+import com.gestionssii.DTO.UserDTO;
 import com.gestionssii.model.User;
 
 public interface UserService {
 
-	public User getUserById(int userId);
+	public UserDTO getUserById(int userId);
 
-	public User getUserLogin(String login, String password);
+	public UserDTO getUserLogin(String login, String password);
 
 }
