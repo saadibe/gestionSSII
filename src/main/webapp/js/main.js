@@ -1,4 +1,16 @@
 require([ 'router', ], function(Router) {
-	var AppRouter = new Router();
-	Backbone.history.start();
+    Application = {
+	events : {},
+	router : {}
+    };
+
+    _.extend(Application.events, Backbone.Events);
+
+    Application.router = new Router();
+
+    // call to begin monitoring uri and route changes
+    Backbone.history.start();
+
+    Application.router.navigate('', true);
+
 });

@@ -17,7 +17,14 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	public UserDTO getUserById(int userId) {
-		return new UserDTO();
+		UserDTO userdto = new UserDTO();
+		User user = userdao.getUserById(userId);
+		userdto.setEmail(user.getEmail());
+		userdto.setFirstName(user.getFirstName());
+		userdto.setLastName(user.getLastName());
+		userdto.setProfile(user.getProfile());
+		userdto.setUserId(user.getUserId());
+		return userdto;
 	}
 
 	@Transactional
@@ -25,8 +32,6 @@ public class UserServiceImpl implements UserService {
 		UserDTO userdto = new UserDTO();
 		User user = userdao.getUserLogin(login, password);
 		if (user != null) {
-			userdto.setFirstName(user.getFirstName());
-			userdto.setLastName(user.getLastName());
 			userdto.setUserId(user.getUserId());
 		}
 		return userdto;
