@@ -31,7 +31,7 @@
         <property name="driverClassName" value="${database.driver}"></property>
         <property name="url" value="jdbc:mysql://localhost:3306/gestion_ssii"></property>
         <property name="username" value="root"></property>
-        <property name="password" value="Saadi1911"></property>
+        <property name="password" value=""></property>
     </bean>
  
     <!-- Hibernate SessionFactory -->
