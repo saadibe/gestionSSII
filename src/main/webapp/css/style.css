@@ -1,9 +1,22 @@
 #main
 {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    background-color: gris;
-    width: 450px;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    margin-left: -100px; /* Cette valeur doit être la moitié négative de la valeur du width */
+    margin-top: -400px; /* Cette valeur doit être la moitié négative de la valeur du height */
+}
+.message
+{
+    margin-top: 300px; /* Cette valeur doit être la moitié négative de la valeur du height */
+}
+/* Je sélectionne les <li> du menu horizontal */
+ul.menu_horizontal li { 
+display : inline;
+padding : 0 0.5em; /* Pour espacer les boutons entre eux */
+}
+ul.menu_horizontal {
+list-style-type : none; /* Car sinon les puces se placent n'importe où */
 }
