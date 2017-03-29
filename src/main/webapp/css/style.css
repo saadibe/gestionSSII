@@ -1,22 +1,55 @@
-#main
-{
-    position:absolute;
-    left: 50%;
-    top: 50%;
-    width: 100%;
-    height: 100%;
-    margin-left: -100px; /* Cette valeur doit être la moitié négative de la valeur du width */
-    margin-top: -400px; /* Cette valeur doit être la moitié négative de la valeur du height */
+//
+Fichier CSS /* Couleur du fond */  
+body {
+	background-color: #fcfdf9;
+	font-family:arial, sans-serif;
+ 	font-size:90%;
 }
-.message
-{
-    margin-top: 300px; /* Cette valeur doit être la moitié négative de la valeur du height */
+
+/* Votre contenu */
+#container {
+	margin: auto;
+	width: 50%;
+	background: gray;
 }
-/* Je sélectionne les <li> du menu horizontal */
-ul.menu_horizontal li { 
-display : inline;
-padding : 0 0.5em; /* Pour espacer les boutons entre eux */
+#contenu {
+	margin: auto;
+	height:800px;
+	background: gray;
 }
-ul.menu_horizontal {
-list-style-type : none; /* Car sinon les puces se placent n'importe où */
+
+#header {
+	margin: auto;
+	background: black;
+}
+
+#footer {
+	margin: auto;
+	background: black;
+	height: 10px;
+}
+
+.authentification {
+	margin: auto;
+	width: 50%;
+}
+
+#wrapper {
+	/* masque les débordements et englobe le menu */
+	overflow: hidden;
+}
+
+#menu, #menu li {
+	/* on supprime les éventuels styles par défaut */
+	margin: 0;
+	margin-left: 5px;
+	padding: 0;
+	list-style: none;
+	/* float permet à l'élément de prendre la largeur de son contenu */
+	float: left;
+	position: relative;
+}
+
+#menu li a {
+	color: white;
 }

@@ -14,7 +14,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/home.hbs',
 	    headerView.showMe();
 	    var template = Handlebars.compile(template_home);
 	    this.$el.html(template(this.model.toJSON()));
-	    $("#main").append(this.$el);
+	    $("#contenu").append(this.$el);
 	    return this;
 	},
 	showMe : function(userId) {

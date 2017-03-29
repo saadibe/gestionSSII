@@ -1,3 +1,4 @@
 # target
 target
-
+#WEB-INF
+src/main/webapp/WEB-INF/spring-servlet.xml

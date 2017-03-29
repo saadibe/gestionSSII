@@ -10,7 +10,7 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	render : function() {
 	    var template = Handlebars.compile(template_auth);
 	    this.$el.html(template);
-	    $("#main").append(this.$el);
+	    $("#contenu").append(this.$el);
 	    return this;
 	},
 	close : function() {
