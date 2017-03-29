@@ -1,55 +1,149 @@
-//
-Fichier CSS /* Couleur du fond */  
 body {
 	background-color: #fcfdf9;
-	font-family:arial, sans-serif;
- 	font-size:90%;
+	font-family: arial, sans-serif;
+	font-size: 90%;
 }
 
-/* Votre contenu */
 #container {
 	margin: auto;
-	width: 50%;
-	background: gray;
+	width: 70%;
 }
+
 #contenu {
 	margin: auto;
-	height:800px;
-	background: gray;
+	height: 600px;
+	background: #D3D3D3;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #header {
 	margin: auto;
 	background: black;
+	margin-top: 20px;
 }
 
 #footer {
 	margin: auto;
 	background: black;
-	height: 10px;
+	height: 20px;
+}
+
+.message {
+	margin: auto;
+	width: 500px;
+	padding-top: 20%;
+}
+
+.user {
+	color: red;
+	margin: 0;
+	text-align: right;
+	background: white;
+	height: 100%;
+}
+
+.recherche {
+	padding-top: 25px;
+}
+
+.resultat {
+	border: black 1px solid;
+	margin-top: 185px;
+}
+
+.cellule {
+	width: 195px;
+	margin-left: 5px;
+	margin-top: 5px;
+	border: black 1px solid;
+}
+
+.recherche-item {
+	float: left;
+	margin-left: 15px;
+	padding-left: 15px;
+}
+
+.rechercher-submit {
+	float: right;
+	margin-top: 20px;
 }
 
 .authentification {
-	margin: auto;
-	width: 50%;
+	width: 500px;
+	margin-top: 10%;
+	margin-left: 10%;
+	border: 2px solid gray;
+	position: absolute;
+}
+
+.authentification-contenu {
+	padding-left: 10px;
 }
 
 #wrapper {
-	/* masque les débordements et englobe le menu */
 	overflow: hidden;
 }
 
 #menu, #menu li {
-	/* on supprime les éventuels styles par défaut */
 	margin: 0;
 	margin-left: 5px;
 	padding: 0;
 	list-style: none;
-	/* float permet à l'élément de prendre la largeur de son contenu */
 	float: left;
 	position: relative;
 }
 
 #menu li a {
 	color: white;
+	cursor: pointer;
+}
+
+#menu li a:link, #menu li a:visited {
+	text-decoration: none;
+}
+
+#menu li a:active {
+	text-decoration: none;
+}
+
+#menu li a:hover {
+	text-decoration: none;
+}
+
+.divTable {
+	display: table;
+	width: 100%;
+}
+
+.divTableRow {
+	display: table-row;
+}
+
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+}
+
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+
+.divTableBody {
+	display: table-row-group;
 }

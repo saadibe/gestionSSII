@@ -10,7 +10,4 @@ require([ 'router', ], function(Router) {
 
     // call to begin monitoring uri and route changes
     Backbone.history.start();
-
-    Application.router.navigate('', true);
-
 });

@@ -4,6 +4,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/home.hbs',
     var singleton;
     var HomeView = Backbone.View.extend({
 	tagName : "div",
+	className:"message",
 
 	events : {
 

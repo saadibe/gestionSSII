@@ -5,13 +5,16 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
     var HeaderView = Backbone.View.extend({
 	tagName : "div",
 	events : {
-	    
+	    "click .js-gestionCandidats" : "gestionCandidats",
 	},
 	render : function() {
 	    var template = Handlebars.compile(template_header);
 	    this.$el.html(template);
 	    $("#header").append(this.$el);
 	    return this;
+	},
+	gestionCandidats:function(){
+	    Application.router.navigate('gestionCandidats', {trigger : true});
 	},
 	showMe : function() {
 	    if (!singleton) {
