@@ -23,6 +23,7 @@ public class CandidatServiceImpl implements CandidatService {
 		List<Candidat> candidatList = new ArrayList<Candidat>();
 		List<CandidatDTO> candidatDtoList = new ArrayList<CandidatDTO>();
 		
+		candidatList = candidatDao.getAllCandidats();
 		for (Candidat candiat : candidatList){
 			CandidatDTO candidatDto = new CandidatDTO();
 			candidatDto.setLastName(candiat.getLastName());
@@ -32,9 +33,6 @@ public class CandidatServiceImpl implements CandidatService {
 			candidatDto.setSexe(candiat.getSexe());
 			candidatDtoList.add(candidatDto);
 		}
-		
-		candidatList = candidatDao.getAllCandidats();
-		
 		return candidatDtoList;
 	}
 
