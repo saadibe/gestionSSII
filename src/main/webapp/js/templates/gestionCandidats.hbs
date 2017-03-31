@@ -8,23 +8,35 @@
     <div class="js-rechercher rechercher-submit"><input type="submit" name="recherche" value="rechercher"/></div>
 </fieldset>
 </div>
+	 <table class="table-result">
+           <thead>
+                    <tr>
+                        <th width= "5%"><i class="" aria-hidden="true"></i> Check</th>
+                        <th width= "5%"><i class="" aria-hidden="true"></i> Id</th>
+                        <th width= "10%"><i class="" aria-hidden="true"></i> Nom</th>
+                        <th width= "10%"><i class="" aria-hidden="true"></i> Pr&eacute;nom</th>
+                        <th width= "15%"><i class="" aria-hidden="true"></i> E-mail</th>
+                        <th width= "20%"><i class="" aria-hidden="true"></i> Domaine de comp&eacute;tence</th>
+						<th width= "5%"><i class="" aria-hidden="true"></i> Note</th>
+						<th width= "30%"><i class="" aria-hidden="true"></i> Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                   {{#each candidats}}
+                    <tr class="clickable-row" data-content-id="{{idCandidats}}">
+                        <td class="check"><input type="checkbox" id="cbox1" value="checkbox1"></td>
+                        <td class="candidatid">{{idCandidats}}</td>
+                        <td class="firstName">{{firstName}}</td>
+                        <td class="">{{lastName}}</td>
+                        <td class="">{{email}}</td>
+                        <td class=""></td>
+						<td class=""></td>
+						<td class=""></td>
+                    </tr>
+                   {{/each}}
+                    </tbody>
+                </table>
 
-<div class="resultat">
-
-<div class="divTable">
-<div class="divTableBody">
-<div class="divTableRow">
-<div class="divTableCell">Check</div>
-<div class="divTableCell">Id</div>
-<div class="divTableCell">Nom</div>
-<div class="divTableCell">Pr&eacute;nom</div>
-<div class="divTableCell">E-mail</div>
-<div class="divTableCell">Domaine de comp&eacute;tence</div>
-<div class="divTableCell">Note</div>
-<div class="divTableCell">Action</div>
-</div>
-</div>
 </div>
 
-
-</div>
+ 

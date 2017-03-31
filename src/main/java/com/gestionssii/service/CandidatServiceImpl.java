@@ -22,15 +22,15 @@ public class CandidatServiceImpl implements CandidatService {
 	public List<CandidatDTO> getAllCandidats() {
 		List<Candidat> candidatList = new ArrayList<Candidat>();
 		List<CandidatDTO> candidatDtoList = new ArrayList<CandidatDTO>();
-		
+
 		candidatList = candidatDao.getAllCandidats();
-		for (Candidat candiat : candidatList){
+		for (Candidat candiat : candidatList) {
 			CandidatDTO candidatDto = new CandidatDTO();
+			candidatDto.setIdCandidats(candiat.getIdCandidats());
+			candidatDto.setEmail(candiat.getEmail());
+			candidatDto.setExpertise(candiat.getExpertise());
 			candidatDto.setLastName(candiat.getLastName());
 			candidatDto.setFirstName(candiat.getFirstName());
-			candidatDto.setBirthDate(candiat.getBirthDate());
-			candidatDto.setAdresse(candiat.getAdresse());
-			candidatDto.setSexe(candiat.getSexe());
 			candidatDtoList.add(candidatDto);
 		}
 		return candidatDtoList;

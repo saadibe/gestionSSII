@@ -27,6 +27,8 @@ public class Candidat {
 	@Column
 	private String adresse;
 	@Column
+	private String email;
+	@Column
 	private String expertise;
 	@Column
 	private String experience;
@@ -127,6 +129,14 @@ public class Candidat {
 
 	public void setCv(String cv) {
 		this.cv = cv;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setAvailability(Date availability) {

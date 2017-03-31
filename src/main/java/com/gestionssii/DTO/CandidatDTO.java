@@ -10,6 +10,7 @@ public class CandidatDTO {
 	private String sexe;
 	private Date birthDate;
 	private String adresse;
+	private String email;
 	private String expertise;
 	private String experience;
 	private String cv;
@@ -83,6 +84,12 @@ public class CandidatDTO {
 	}
 	public void setCv(String cv) {
 		this.cv = cv;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public void setAvailability(Date availability) {
 		this.availability = availability;

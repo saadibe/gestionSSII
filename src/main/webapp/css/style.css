@@ -1,12 +1,11 @@
 body {
 	background-color: #fcfdf9;
 	font-family: arial, sans-serif;
-	font-size: 90%;
 }
 
 #container {
 	margin: auto;
-	width: 70%;
+	width: 100%;
 }
 
 #contenu {
@@ -19,14 +18,14 @@ body {
 
 #header {
 	margin: auto;
-	background: black;
+	background: #444;
 	margin-top: 20px;
 }
 
 #footer {
 	margin: auto;
-	background: black;
-	height: 20px;
+	background: #444;
+	height: 40px;
 }
 
 .message {
@@ -36,11 +35,9 @@ body {
 }
 
 .user {
-	color: red;
-	margin: 0;
-	text-align: right;
-	background: white;
-	height: 100%;
+    color: white;
+    text-align: right;
+    padding-top: 5px;
 }
 
 .recherche {
@@ -84,6 +81,7 @@ body {
 
 #wrapper {
 	overflow: hidden;
+	padding-bottom: 10px;
 }
 
 #menu, #menu li {
@@ -112,38 +110,27 @@ body {
 	text-decoration: none;
 }
 
-.divTable {
-	display: table;
+.table-result {
 	width: 100%;
+	padding-top: 150px;
 }
 
-.divTableRow {
-	display: table-row;
+.table-result th,
+.table-result td {
+	padding: 8px;
 }
 
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
+.table-result tbody tr:nth-child(odd) {
+	background-color: #ebeef1;
 }
 
-.divTableCell, .divTableHead {
-	border: 1px solid #999999;
-	display: table-cell;
-	padding: 3px 10px;
+.table-result tbody tr:hover {
+	cursor: pointer;
+	background-color: rgba(55,55,55,0.2);
 }
 
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-	font-weight: bold;
-}
-
-.divTableFoot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
-}
-
-.divTableBody {
-	display: table-row-group;
+.check{
+	text-align: center;
+  	vertical-align: middle;
+  
 }
