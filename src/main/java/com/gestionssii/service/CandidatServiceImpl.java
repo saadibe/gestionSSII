@@ -1,6 +1,8 @@
 package com.gestionssii.service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import org.apache.commons.beanutils.BeanUtils;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -19,18 +21,13 @@ public class CandidatServiceImpl implements CandidatService {
 	CandidatDao candidatDao;
 
 	@Transactional
-	public List<CandidatDTO> getAllCandidats() {
+	public List<CandidatDTO> getAllCandidats() throws IllegalAccessException, InvocationTargetException {
 		List<Candidat> candidatList = new ArrayList<Candidat>();
 		List<CandidatDTO> candidatDtoList = new ArrayList<CandidatDTO>();
-
 		candidatList = candidatDao.getAllCandidats();
 		for (Candidat candiat : candidatList) {
 			CandidatDTO candidatDto = new CandidatDTO();
-			candidatDto.setIdCandidats(candiat.getIdCandidats());
-			candidatDto.setEmail(candiat.getEmail());
-			candidatDto.setExpertise(candiat.getExpertise());
-			candidatDto.setLastName(candiat.getLastName());
-			candidatDto.setFirstName(candiat.getFirstName());
+			BeanUtils.copyProperties(candidatDto, candiat);
 			candidatDtoList.add(candidatDto);
 		}
 		return candidatDtoList;

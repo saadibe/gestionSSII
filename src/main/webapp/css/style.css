@@ -10,8 +10,7 @@ body {
 
 #contenu {
 	margin: auto;
-	height: 600px;
-	background: #D3D3D3;
+	height: 1270px;;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -23,21 +22,26 @@ body {
 }
 
 #footer {
-	margin: auto;
-	background: #444;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
 	height: 40px;
+	width: 100%;
+	background: #444;
+	margin-top: 20px;
 }
 
 .message {
 	margin: auto;
 	width: 500px;
-	padding-top: 20%;
+	padding-top: 15%;
 }
 
 .user {
-    color: white;
-    text-align: right;
-    padding-top: 5px;
+	color: white;
+	text-align: right;
+	padding-top: 5px;
+	padding-right: 10px;
 }
 
 .recherche {
@@ -64,13 +68,13 @@ body {
 
 .rechercher-submit {
 	float: right;
-	margin-top: 20px;
+	margin-top: 50px;
 }
 
 .authentification {
 	width: 500px;
 	margin-top: 10%;
-	margin-left: 10%;
+	margin-left: 30%;
 	border: 2px solid gray;
 	position: absolute;
 }
@@ -104,19 +108,20 @@ body {
 
 #menu li a:active {
 	text-decoration: none;
+	color: red;
 }
 
 #menu li a:hover {
 	text-decoration: none;
+	color: red;
 }
 
 .table-result {
 	width: 100%;
-	padding-top: 150px;
+	padding-top: 20px;
 }
 
-.table-result th,
-.table-result td {
+.table-result th, .table-result td {
 	padding: 8px;
 }
 
@@ -126,11 +131,43 @@ body {
 
 .table-result tbody tr:hover {
 	cursor: pointer;
-	background-color: rgba(55,55,55,0.2);
+	background-color: rgba(55, 55, 55, 0.2);
 }
 
-.check{
+.check {
 	text-align: center;
-  	vertical-align: middle;
-  
+	vertical-align: middle;
+}
+
+.ajouter-candidat {
+	background: url(../img/ajouter_candidat.png) top left no-repeat;
+	display: block;
+	width: 50px;
+	height: 50px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 10px;
+}
+.update{
+	background: url(../img/update.png) top left no-repeat;
+	display: block;
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin-left: 30%;
+}
+.afficher{
+	background: url(../img/afficher.png) top left no-repeat;
+	display: block;
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+.supprimer {
+	background: url(../img/supprimer.png) top left no-repeat;
+	display: block;
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin-left: 30%;
 }

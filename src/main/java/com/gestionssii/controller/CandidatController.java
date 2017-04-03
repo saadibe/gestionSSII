@@ -1,5 +1,6 @@
 package com.gestionssii.controller;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,7 @@ public class CandidatController {
 	CandidatService candidatService;
 
 	@RequestMapping(value = "/getCandidats", method = RequestMethod.GET)
-	public @ResponseBody List<CandidatDTO> getAllCandidats(HttpServletRequest request) {
+	public @ResponseBody List<CandidatDTO> getAllCandidats(HttpServletRequest request) throws IllegalAccessException, InvocationTargetException {
 		return candidatService.getAllCandidats();
 	}
 

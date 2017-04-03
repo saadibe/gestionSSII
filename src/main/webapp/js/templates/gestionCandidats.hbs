@@ -7,6 +7,7 @@
     <div class="recherche-item"><label>Domaine de comp&eacute;tences : </label><input type="text" name="Domaine-candidat"></div> 
     <div class="js-rechercher rechercher-submit"><input type="submit" name="recherche" value="rechercher"/></div>
 </fieldset>
+<div class="ajouter-candidat js-ajouter-candidat"></div>
 </div>
 	 <table class="table-result">
            <thead>
@@ -29,9 +30,9 @@
                         <td class="firstName">{{firstName}}</td>
                         <td class="">{{lastName}}</td>
                         <td class="">{{email}}</td>
-                        <td class=""></td>
+                        <td class="">{{expertise}}</td>
 						<td class=""></td>
-						<td class=""></td>
+						<td class=""><div class="afficher"></div><div class="update"></div><div class="supprimer"></div></td>
                     </tr>
                    {{/each}}
                     </tbody>
