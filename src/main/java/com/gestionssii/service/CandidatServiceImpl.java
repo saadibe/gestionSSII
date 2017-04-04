@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import org.apache.commons.beanutils.BeanUtils;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -31,6 +32,14 @@ public class CandidatServiceImpl implements CandidatService {
 			candidatDtoList.add(candidatDto);
 		}
 		return candidatDtoList;
+	}
+
+	@Transactional
+	public boolean saveCandidat(Map candidat) throws IllegalAccessException, InvocationTargetException {
+		CandidatDTO candidatDto = new CandidatDTO();
+		BeanUtils.copyProperties(candidatDto,candidat);
+		candidatDao.saveCandidat(candidatDto);
+		return false;
 	}
 
 }

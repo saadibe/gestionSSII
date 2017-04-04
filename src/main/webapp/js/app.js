@@ -9,11 +9,15 @@ require.config({
 	'lib/backbone' : {
 	    deps : [ "lib/underscore", "jquery" ],
 	    exports : 'Backbone'
+	},
+	'lib/bootstrap' : {
+	    deps : [ "jquery" ],
+	    exports : 'Bootstrap'
 	}
     }
 });
 
-require([ "jquery", "lib/handlebars", "lib/underscore", "lib/backbone",
+require([ "lib/bootstrap","jquery", "lib/handlebars", "lib/underscore", "lib/backbone",
 	"lib/text", "main" ]);
 
 var host = {

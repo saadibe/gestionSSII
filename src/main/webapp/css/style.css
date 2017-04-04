@@ -8,6 +8,19 @@ body {
 	width: 100%;
 }
 
+.gestionCandidats {
+	margin: 20px;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.ajoutCandidat {
+	margin-left: 10%;
+	margin-top: 30px;
+}
+
 #contenu {
 	margin: auto;
 	height: 1270px;;
@@ -44,31 +57,9 @@ body {
 	padding-right: 10px;
 }
 
-.recherche {
-	padding-top: 25px;
-}
-
-.resultat {
-	border: black 1px solid;
-	margin-top: 185px;
-}
-
-.cellule {
-	width: 195px;
-	margin-left: 5px;
-	margin-top: 5px;
-	border: black 1px solid;
-}
-
-.recherche-item {
-	float: left;
-	margin-left: 15px;
-	padding-left: 15px;
-}
-
-.rechercher-submit {
-	float: right;
-	margin-top: 50px;
+a {
+	color: white;
+	text-decoration: none;
 }
 
 .authentification {
@@ -81,57 +72,6 @@ body {
 
 .authentification-contenu {
 	padding-left: 10px;
-}
-
-#wrapper {
-	overflow: hidden;
-	padding-bottom: 10px;
-}
-
-#menu, #menu li {
-	margin: 0;
-	margin-left: 5px;
-	padding: 0;
-	list-style: none;
-	float: left;
-	position: relative;
-}
-
-#menu li a {
-	color: white;
-	cursor: pointer;
-}
-
-#menu li a:link, #menu li a:visited {
-	text-decoration: none;
-}
-
-#menu li a:active {
-	text-decoration: none;
-	color: red;
-}
-
-#menu li a:hover {
-	text-decoration: none;
-	color: red;
-}
-
-.table-result {
-	width: 100%;
-	padding-top: 20px;
-}
-
-.table-result th, .table-result td {
-	padding: 8px;
-}
-
-.table-result tbody tr:nth-child(odd) {
-	background-color: #ebeef1;
-}
-
-.table-result tbody tr:hover {
-	cursor: pointer;
-	background-color: rgba(55, 55, 55, 0.2);
 }
 
 .check {
@@ -148,7 +88,8 @@ body {
 	margin-top: 20px;
 	margin-right: 10px;
 }
-.update{
+
+.update {
 	background: url(../img/update.png) top left no-repeat;
 	display: block;
 	width: 30px;
@@ -156,13 +97,15 @@ body {
 	float: left;
 	margin-left: 30%;
 }
-.afficher{
+
+.afficher {
 	background: url(../img/afficher.png) top left no-repeat;
 	display: block;
 	width: 30px;
 	height: 30px;
 	float: left;
 }
+
 .supprimer {
 	background: url(../img/supprimer.png) top left no-repeat;
 	display: block;

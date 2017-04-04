@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.gestionssii.DTO.CandidatDTO;
 import com.gestionssii.model.Candidat;
 
 @Repository
@@ -17,6 +18,10 @@ public class CandidatDaoImpl implements CandidatDao {
 	@Override
 	public List<Candidat> getAllCandidats() {
 		return sessionFactory.getCurrentSession().createQuery("From Candidat").list();
+	}
+
+	public void saveCandidat(CandidatDTO candidatDto) {
+		System.out.println("candidatDto"+candidatDto.getFirstName());
 	}
 
 }

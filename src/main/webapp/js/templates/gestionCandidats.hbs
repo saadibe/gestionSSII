@@ -1,43 +1,65 @@
-<div class="recherche">
-<fieldset class="fieldset2">
-    <legend><strong>rechercher :</strong></legend>
-    <div class="recherche-item"><label>Id :</label> <input type="text" name="id"> </div>
-    <div class="recherche-item"><label>Nom :</label> <input type="text" name="nom-candidat"> </div>
-    <div class="recherche-item"><label>Pr&eacute;nom :</label><input type="text" name="Prenom-candidat"></div>
-    <div class="recherche-item"><label>Domaine de comp&eacute;tences : </label><input type="text" name="Domaine-candidat"></div> 
-    <div class="js-rechercher rechercher-submit"><input type="submit" name="recherche" value="rechercher"/></div>
-</fieldset>
+
+
+   <form class="form-inline">
+      <div class="form-group">
+         <label for="id">Id :</label>
+         <input type="text" class="form-control" id="Id">
+      </div>
+      <div class="form-group">
+         <label for="Nom">Nom:</label>
+         <input type="text" class="form-control" id="Nom">
+      </div>
+      <div class="form-group">
+         <label for="prenom">Pr&eacute;nom :</label>
+         <input type="text" class="form-control" id="prenom">
+      </div>
+      <div class="form-group">
+         <label for="domaine">Domaine de comp&eacute;tences :</label>
+         <input type="text" class="form-control" id="domaine">
+      </div>
+      <button data-toggle="collapse" data-target="#demo" type="submit" class="btn btn-default">Rechercher</button>
+   </form>
+
+<div id="demo" class="collapse">
+   <div class="form-group">
+         <label for="id">experience :</label>
+         <input type="text" class="form-control" id="experience">
+      </div>
+</div>
+
 <div class="ajouter-candidat js-ajouter-candidat"></div>
 </div>
-	 <table class="table-result">
-           <thead>
-                    <tr>
-                        <th width= "5%"><i class="" aria-hidden="true"></i> Check</th>
-                        <th width= "5%"><i class="" aria-hidden="true"></i> Id</th>
-                        <th width= "10%"><i class="" aria-hidden="true"></i> Nom</th>
-                        <th width= "10%"><i class="" aria-hidden="true"></i> Pr&eacute;nom</th>
-                        <th width= "15%"><i class="" aria-hidden="true"></i> E-mail</th>
-                        <th width= "20%"><i class="" aria-hidden="true"></i> Domaine de comp&eacute;tence</th>
-						<th width= "5%"><i class="" aria-hidden="true"></i> Note</th>
-						<th width= "30%"><i class="" aria-hidden="true"></i> Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                   {{#each candidats}}
-                    <tr class="clickable-row" data-content-id="{{idCandidats}}">
-                        <td class="check"><input type="checkbox" id="cbox1" value="checkbox1"></td>
-                        <td class="candidatid">{{idCandidats}}</td>
-                        <td class="firstName">{{firstName}}</td>
-                        <td class="">{{lastName}}</td>
-                        <td class="">{{email}}</td>
-                        <td class="">{{expertise}}</td>
-						<td class=""></td>
-						<td class=""><div class="afficher"></div><div class="update"></div><div class="supprimer"></div></td>
-                    </tr>
-                   {{/each}}
-                    </tbody>
-                </table>
 
+<table class="table table-hover">
+   <thead>
+      <tr>
+         <th width= "5%"><i class="" aria-hidden="true"></i> Check</th>
+         <th width= "5%"><i class="" aria-hidden="true"></i> Id</th>
+         <th width= "10%"><i class="" aria-hidden="true"></i> Nom</th>
+         <th width= "10%"><i class="" aria-hidden="true"></i> Pr&eacute;nom</th>
+         <th width= "15%"><i class="" aria-hidden="true"></i> E-mail</th>
+         <th width= "20%"><i class="" aria-hidden="true"></i> Domaine de comp&eacute;tence</th>
+         <th width= "5%"><i class="" aria-hidden="true"></i> Note</th>
+         <th width= "30%"><i class="" aria-hidden="true"></i> Action</th>
+      </tr>
+   </thead>
+   <tbody>
+      {{#each candidats}}
+      <tr class="clickable-row" data-content-id="{{idCandidats}}">
+         <td class="check"><input type="checkbox" id="cbox1" value="checkbox1"></td>
+         <td class="candidatid">{{idCandidats}}</td>
+         <td class="firstName">{{firstName}}</td>
+         <td class="">{{lastName}}</td>
+         <td class="">{{email}}</td>
+         <td class="">{{expertise}}</td>
+         <td class=""></td>
+         <td class="">
+            <div class="afficher"></div>
+            <div class="update"></div>
+            <div class="supprimer"></div>
+         </td>
+      </tr>
+      {{/each}}
+   </tbody>
+</table>
 </div>
-
- 
