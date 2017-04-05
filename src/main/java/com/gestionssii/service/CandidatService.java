@@ -10,5 +10,6 @@ import com.gestionssii.model.Candidat;
 public interface CandidatService {
 	
 	List<CandidatDTO>  getAllCandidats() throws IllegalAccessException, InvocationTargetException;
-    boolean saveCandidat(Map candidat) throws IllegalAccessException, InvocationTargetException;
+    boolean saveCandidat(CandidatDTO candidatDto) throws  Exception;
+	void deleteCandidat(int idcandidat) throws  Exception;;
 }

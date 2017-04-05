@@ -4,13 +4,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import org.apache.commons.beanutils.BeanUtils;
 import java.util.List;
-import java.util.Map;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.gestionssii.DTO.CandidatDTO;
 import com.gestionssii.dao.CandidatDao;
 import com.gestionssii.model.Candidat;
@@ -35,11 +31,17 @@ public class CandidatServiceImpl implements CandidatService {
 	}
 
 	@Transactional
-	public boolean saveCandidat(Map candidat) throws IllegalAccessException, InvocationTargetException {
-		CandidatDTO candidatDto = new CandidatDTO();
-		BeanUtils.copyProperties(candidatDto,candidat);
-		candidatDao.saveCandidat(candidatDto);
+	public boolean saveCandidat(CandidatDTO candidatDto) throws Exception {
+		Candidat candiat = new Candidat();
+		BeanUtils.copyProperties(candiat,candidatDto);
+		candidatDao.saveCandidat(candiat);
 		return false;
+	}
+
+	@Transactional
+	public void deleteCandidat(int idcandidat) throws Exception {
+		candidatDao.deleteCandidat(idcandidat);
+		
 	}
 
 }

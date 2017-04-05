@@ -45,7 +45,8 @@
    </thead>
    <tbody>
       {{#each candidats}}
-      <tr class="clickable-row" data-content-id="{{idCandidats}}">
+       {{#if isactive}}         
+      <tr class="clickable-row" data-candidat-id="{{idCandidats}}">
          <td class="check"><input type="checkbox" id="cbox1" value="checkbox1"></td>
          <td class="candidatid">{{idCandidats}}</td>
          <td class="firstName">{{firstName}}</td>
@@ -54,11 +55,12 @@
          <td class="">{{expertise}}</td>
          <td class=""></td>
          <td class="">
-            <div class="afficher"></div>
-            <div class="update"></div>
-            <div class="supprimer"></div>
+            <div class="afficher" data-idCandidats="{{idCandidats}}"></div>
+            <div class="update" data-idCandidats="{{idCandidats}}"></div>
+            <div class="supprimer js-supprimer-candidat" data-idcandidat="{{idCandidats}}" ></div>
          </td>
       </tr>
+      {{/if}}
       {{/each}}
    </tbody>
 </table>

@@ -8,22 +8,33 @@ define([ 'lib/handlebars', 'lib/backbone',
 	className : "ajoutCandidat",
 	events : {
 	    "click .js-ajouter" : "ajouterCandidat",
+	    "click .js-annuller" : "annuller"
 	},
 	ajouterCandidat : function() {
 	    var candidat = new Candidat()
 	    candidat.set({
-		"firstName" : "bechir2",
-		"lastName" : "saadi2",
-		"sexe" : "Masculin",
-		"birthDate" : "1982-11-19",
-		"adresse":"rue maurice berteaux",
-		"email":"saadyahoo@yahoo.fr",
-		"expertise":"php",
-		"experience":"8",
-		"cv":"none",
-		"availability":"19-10-2017"
+		"firstName" : $("input[name=firstName]").val(),
+		"lastName" : $("input[name=lastName]").val(),
+		"sexe" : $("select[name=sexe]").val(),
+		"birthDate" : $("input[name=birthDate]").val(),
+		"adresse" : $("input[name=adresse]").val(),
+		"email" : $("input[name=email]").val(),
+		"expertise" : $("input[name=expertise]").val(),
+		"experience" : $("input[name=experience]").val(),
+		"cv" : $("input[name=cv]").val(),
+		"availability" : $("input[name=availability]").val()
 	    })
-	    candidat.save();
+	    candidat.save(candidat.toJSON(),{
+		success: function(model) {
+		    Application.router.navigate('gestionCandidats', {trigger : true});
+                },
+                error: function(model, response) {
+                    console.log("response"+response)
+                }
+            });
+	},
+	annuller : function(){
+	    Application.router.navigate('gestionCandidats', {trigger : true}); 
 	},
 	render : function() {
 	    var headerView = new HeaderView();

@@ -1,7 +1,7 @@
-define([ 'lib/handlebars', 'lib/backbone',
+define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	'lib/text!templates/gestionCandidats.hbs', 'views/headerView',
-	"collections/candidats" ], function(Handlebars, Backbone,
-	template_gestionCandidats, HeaderView, Candidats) {
+	"collections/candidats","models/candidat" ], function(Bootbox, Handlebars, Backbone,
+	template_gestionCandidats, HeaderView, Candidats,Candidat) {
     var singleton;
     var GestionCandidatsView = Backbone.View.extend({
 	tagName : "div",
@@ -9,10 +9,34 @@ define([ 'lib/handlebars', 'lib/backbone',
 	events : {
 
 	    "click .js-ajouter-candidat" : "ajoutCandidat",
+	    "click .js-supprimer-candidat" : "supprimerCandidat"
 
 	},
 	ajoutCandidat : function() {
-	    	Application.router.navigate('ajoutCandidat', {trigger : true});
+	    Application.router.navigate('ajoutCandidat', {
+		trigger : true
+	    });
+	},
+	supprimerCandidat : function(event) {
+	    var self =this
+	    Bootbox.confirm("Voulez vous supprimer le candidat?", function(
+		    result) {
+		if (result) {
+		    var candidatData = $(event.currentTarget).data();
+		    candidat = new Candidat({candidatId:candidatData.idcandidat})
+		    candidat.save(candidat.toJSON(),{
+			success: function(model) {
+			   render();
+	                },
+	                error: function(model, response) {
+	                    console.log("response"+response)
+	                }
+	            });
+		   
+		} else {
+		    console.log("User declined dialog");
+		}
+	    });
 	},
 	render : function() {
 	    var headerView = new HeaderView();
@@ -32,6 +56,13 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    candidats.fetch({
 		success : (function(model) {
 		    singleton.model = model
+		    singleton.model.each(function(candidat) {
+			if(candidat.get("active") == '0'){
+			    candidat.set("isactive",false)
+			}else{
+			    candidat.set("isactive",true)
+			}
+			});
 		    singleton.render();
 		}),
 		error : (function(e) {

@@ -35,10 +35,7 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 		success : (function(model) {
 
 		    if (model.get("userId")) {
-			Application.router.navigate('home/'
-				+ model.get("userId"), {
-			    trigger : true
-			});
+			Application.router.navigate('home/'+ model.get("userId"), {trigger : true});
 		    }
 		}),
 		error : (function(e) {

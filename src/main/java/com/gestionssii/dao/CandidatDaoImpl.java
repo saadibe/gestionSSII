@@ -11,17 +11,23 @@ import com.gestionssii.model.Candidat;
 
 @Repository
 public class CandidatDaoImpl implements CandidatDao {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public List<Candidat> getAllCandidats() {
 		return sessionFactory.getCurrentSession().createQuery("From Candidat").list();
 	}
 
-	public void saveCandidat(CandidatDTO candidatDto) {
-		System.out.println("candidatDto"+candidatDto.getFirstName());
+	@Override
+	public void saveCandidat(Candidat candiat) {
+		sessionFactory.getCurrentSession().save(candiat);
 	}
 
+	@Override
+	public void deleteCandidat(int idcandidat) {
+		sessionFactory.getCurrentSession()
+				.createQuery("update Candidat ca set ca.active = 0 where ca.idCandidats=" + idcandidat).executeUpdate();
+	}
 }

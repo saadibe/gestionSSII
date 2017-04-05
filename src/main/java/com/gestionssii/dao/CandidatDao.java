@@ -9,6 +9,8 @@ public interface CandidatDao {
 	
 	List<Candidat> getAllCandidats();
 
-	void saveCandidat(CandidatDTO candidatDto);
+	void saveCandidat(Candidat candiat);
+
+	void deleteCandidat(int idcandidat);
 
 }
