@@ -9,13 +9,22 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/home.hbs',
 	events : {
 
 	},
+	close : function() {
+	    this.$el.remove();
 
+	    this.off();
+
+	    if (this.model) {
+		this.model.off(null, null, this);
+	    }
+	},
 	render : function() {
 	    var headerView = new HeaderView();
 	    headerView.showMe();
 	    var template = Handlebars.compile(template_home);
 	    this.$el.html(template(this.model.toJSON()));
 	    $("#contenu").append(this.$el);
+	    this.delegateEvents();
 	    return this;
 	},
 	showMe : function(userId) {
@@ -37,7 +46,6 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/home.hbs',
 		    console.log(' Service request failure: ' + e);
 		}),
 	    })
-
 	    return singleton;
 	}
     });

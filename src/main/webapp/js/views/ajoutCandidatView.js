@@ -10,8 +10,17 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    "click .js-ajouter" : "ajouterCandidat",
 	    "click .js-annuller" : "annuller"
 	},
+	close : function() {
+	    this.$el.remove();
+
+	    this.off();
+
+	    if (this.model) {
+		this.model.off(null, null, this);
+	    }
+	},
 	ajouterCandidat : function() {
-	    var candidat = new Candidat()
+	    var candidat = new Candidat({action:"ajout"})
 	    candidat.set({
 		"firstName" : $("input[name=firstName]").val(),
 		"lastName" : $("input[name=lastName]").val(),
@@ -22,7 +31,8 @@ define([ 'lib/handlebars', 'lib/backbone',
 		"expertise" : $("input[name=expertise]").val(),
 		"experience" : $("input[name=experience]").val(),
 		"cv" : $("input[name=cv]").val(),
-		"availability" : $("input[name=availability]").val()
+		"availability" : $("input[name=availability]").val(),
+		"active" : "1"
 	    })
 	    candidat.save(candidat.toJSON(),{
 		success: function(model) {

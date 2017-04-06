@@ -48,8 +48,8 @@ public class CandidatController {
 
 			request.put("birthDate", birthdate);
 			request.put("availability", availabilityDate);
-
 			BeanUtils.copyProperties(candidatDto, request);
+			candidatDto.setActive(1);
 			isaddCandidiat = candidatService.saveCandidat(candidatDto);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,4 +63,5 @@ public class CandidatController {
 		candidatService.deleteCandidat(idcandidat);
 		return "candidat supprimer";
 	}
+	
 }
