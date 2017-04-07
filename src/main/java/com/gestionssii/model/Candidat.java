@@ -15,7 +15,7 @@ public class Candidat {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idCandidats;
+	private int idCandidat;
 	@Column
 	private String firstName;
 	@Column
@@ -43,8 +43,8 @@ public class Candidat {
 	@Column
 	private int active;
 
-	public int getIdCandidats() {
-		return idCandidats;
+	public int getidCandidat() {
+		return idCandidat;
 	}
 
 	public String getFirstName() {
@@ -95,8 +95,8 @@ public class Candidat {
 		return active;
 	}
 
-	public void setIdCandidats(int idCandidats) {
-		this.idCandidats = idCandidats;
+	public void setidCandidat(int idCandidat) {
+		this.idCandidat = idCandidat;
 	}
 
 	public void setFirstName(String firstName) {

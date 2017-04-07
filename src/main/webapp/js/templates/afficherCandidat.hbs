@@ -6,19 +6,19 @@
       <label class="control-label " for="firstName">
        nom
       </label>
-      <input class="form-control" id="firstName" name="firstName" type="text" disabled  />
+      <input class="form-control" id="firstName" name="firstName" value="{{candidat.firstName}}" type="text" disabled  />
      </div>
      <div class="form-group ">
       <label class="control-label " for="lastName">
        prenom
       </label>
-      <input class="form-control" id="lastName" name="lastName" type="text" />
+      <input class="form-control" id="lastName" name="lastName" value="{{candidat.lastName}}"  type="text"  disabled/>
      </div>
      <div class="form-group ">
       <label class="control-label " for="sexe">
        sexe
       </label>
-      <select class="select form-control" id="sexe" name="sexe" >
+      <select class="select form-control" id="sexe" name="sexe" value="{{candidat.sexe}}" disabled >
        <option value="Masculin">
         Masculin
        </option>
@@ -31,13 +31,13 @@
       <label class="control-label " for="birthDate">
        Date de naissance
       </label>
-      <input class="form-control" id="birthDate" name="birthDate" placeholder="MM/DD/YYYY" type="text"  value="1991-01-10"/>
+      <input class="form-control" id="birthDate" name="birthDate" placeholder="MM/DD/YYYY" type="text"  value="{{candidat.birthDate}}" disabled/>
      </div>
      <div class="form-group ">
       <label class="control-label " for="adresse">
        adresse
       </label>
-      <input class="form-control" id="adresse" name="adresse" type="text" />
+      <input class="form-control" id="adresse" name="adresse" type="text" value="{{candidat.adresse}}" disabled />
      </div>
      <div class="form-group ">
       <label class="control-label requiredField" for="email">
@@ -46,31 +46,31 @@
         *
        </span>
       </label>
-      <input class="form-control" id="email" name="email" type="text"  />
+      <input class="form-control" id="email" name="email" type="text" value="{{candidat.email}}" disabled  />
      </div>
      <div class="form-group ">
       <label class="control-label " for="expertise">
        domaine de comp&eacute;tance
       </label>
-      <input class="form-control" id="expertise" name="expertise" type="text"  />
+      <input class="form-control" id="expertise" name="expertise" type="text" value="{{candidat.expertise}}" disabled />
      </div>
      <div class="form-group ">
       <label class="control-label " for="experience">
        Ann&eacute; d'experience
       </label>
-      <input class="form-control" id="experience" name="experience" type="text"  />
+      <input class="form-control" id="experience" name="experience" type="text" value="{{candidat.experience}}" disabled />
      </div>
      <div class="form-group ">
       <label class="control-label " for="cv">
        cv
       </label>
-      <input class="form-control" id="cv" name="cv" type="file"/>
+      <input class="form-control" id="cv" name="cv" type="file" value="{{candidat.cv}}" disabled/>
      </div>
      <div class="form-group ">
       <label class="control-label " for="date1">
        Disponiblit&eacute;
       </label>
-      <input class="form-control" id="availability" name="availability" placeholder="MM/DD/YYYY" type="text"/>
+      <input class="form-control" id="availability" name="availability" placeholder="MM/DD/YYYY" value="{{candidat.availability}}" disabled type="text"/>
      </div>
      <div class="form-group">
       <div>

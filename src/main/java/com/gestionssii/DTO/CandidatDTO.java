@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class CandidatDTO {
 
-	private int idCandidats;
+	private int idCandidat;
 	private String firstName;
 	private String lastName;
 	private String sexe;
@@ -17,8 +17,8 @@ public class CandidatDTO {
 	private Date availability;
 	private int active;
 
-	public int getIdCandidats() {
-		return idCandidats;
+	public int getidCandidat() {
+		return idCandidat;
 	}
 
 	public String getFirstName() {
@@ -61,8 +61,8 @@ public class CandidatDTO {
 		return active;
 	}
 
-	public void setIdCandidats(int idCandidats) {
-		this.idCandidats = idCandidats;
+	public void setidCandidat(int idCandidat) {
+		this.idCandidat = idCandidat;
 	}
 
 	public void setFirstName(String firstName) {

@@ -58,10 +58,23 @@ public class CandidatController {
 	}
 
 	@RequestMapping(value = "/supprimerCandidat/{candidatId}", method = RequestMethod.POST)
-	public @ResponseBody String deleteCandidat(HttpServletRequest request,@PathVariable String candidatId) throws Exception {
+	public @ResponseBody String deleteCandidat(HttpServletRequest request, @PathVariable String candidatId)
+			throws Exception {
 		int idcandidat = Integer.parseInt(candidatId);
 		candidatService.deleteCandidat(idcandidat);
 		return "candidat supprimer";
 	}
-	
+
+	@RequestMapping(value = "/afficherCandidat/{candidatId}", method = RequestMethod.GET)
+	public @ResponseBody CandidatDTO getCandidatById(HttpServletRequest request, @PathVariable String candidatId)
+			throws Exception {
+		int idcandidat = Integer.parseInt(candidatId);
+		try {
+			candidatService.getCandidatById(idcandidat);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return candidatService.getCandidatById(idcandidat);
+	}
 }

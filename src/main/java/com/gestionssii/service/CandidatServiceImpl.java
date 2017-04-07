@@ -32,9 +32,9 @@ public class CandidatServiceImpl implements CandidatService {
 
 	@Transactional
 	public boolean saveCandidat(CandidatDTO candidatDto) throws Exception {
-		Candidat candiat = new Candidat();
-		BeanUtils.copyProperties(candiat,candidatDto);
-		candidatDao.saveCandidat(candiat);
+		Candidat candidat = new Candidat();
+		BeanUtils.copyProperties(candidat,candidatDto);
+		candidatDao.saveCandidat(candidat);
 		return false;
 	}
 
@@ -42,6 +42,14 @@ public class CandidatServiceImpl implements CandidatService {
 	public void deleteCandidat(int idcandidat) throws Exception {
 		candidatDao.deleteCandidat(idcandidat);
 		
+	}
+
+	@Transactional
+	public CandidatDTO getCandidatById(int idcandidat) throws Exception {
+		CandidatDTO candidatDTO = new CandidatDTO();
+		Candidat candidat = candidatDao.getCandidatById(idcandidat);
+		BeanUtils.copyProperties(candidatDTO,candidat);
+		return candidatDTO;
 	}
 
 }

@@ -13,4 +13,6 @@ public interface CandidatDao {
 
 	void deleteCandidat(int idcandidat);
 
+	Candidat getCandidatById(int idcandidat);
+
 }

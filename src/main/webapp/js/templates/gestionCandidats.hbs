@@ -46,18 +46,18 @@
    <tbody>
       {{#each candidats}}
        {{#if isactive}}         
-      <tr class="clickable-row" data-candidat-id="{{idCandidats}}">
+      <tr class="clickable-row" data-candidat-id="{{idCandidat}}">
          <td class="check"><input type="checkbox" id="cbox1" value="checkbox1"></td>
-         <td class="candidatid">{{idCandidats}}</td>
+         <td class="candidatid">{{idCandidat}}</td>
          <td class="firstName">{{firstName}}</td>
          <td class="">{{lastName}}</td>
          <td class="">{{email}}</td>
          <td class="">{{expertise}}</td>
          <td class=""></td>
          <td class="">
-            <div class="afficher js-afficher-candidat" data-idCandidats="{{idCandidats}}"></div>
-            <div class="update" data-idCandidats="{{idCandidats}}"></div>
-            <div class="supprimer js-supprimer-candidat" data-idcandidat="{{idCandidats}}" ></div>
+            <div class="afficher js-afficher-candidat" data-idCandidat="{{idCandidat}}"></div>
+            <div class="update" data-idCandidat="{{idCandidat}}"></div>
+            <div class="supprimer js-supprimer-candidat" data-idcandidat="{{idCandidat}}" ></div>
          </td>
       </tr>
       {{/if}}

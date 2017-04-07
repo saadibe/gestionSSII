@@ -11,5 +11,6 @@ public interface CandidatService {
 	
 	List<CandidatDTO>  getAllCandidats() throws IllegalAccessException, InvocationTargetException;
     boolean saveCandidat(CandidatDTO candidatDto) throws  Exception;
-	void deleteCandidat(int idcandidat) throws  Exception;;
+	void deleteCandidat(int idcandidat) throws  Exception;
+	CandidatDTO getCandidatById(int idcandidat) throws Exception;;
 }

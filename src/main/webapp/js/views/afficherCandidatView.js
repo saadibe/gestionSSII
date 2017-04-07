@@ -22,7 +22,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    var headerView = new HeaderView();
 	    headerView.showMe();
 	    var template = Handlebars.compile(template_afficherCandidat);
-	    this.$el.html(template);
+	    this.$el.html(template({candidat:this.model.toJSON()}));
 	    $("#contenu").append(this.$el);
 	    this.delegateEvents();
 	    return this;

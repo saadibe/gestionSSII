@@ -31,7 +31,7 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	afficherCandidat : function(event) {
 	    var candidatData = $(event.currentTarget).data();
 	    candidatId = candidatData.idcandidat;
-	    Application.router.navigate('afficherCandidat/candidatId', {
+	    Application.router.navigate('afficherCandidat/'+candidatId, {
 		trigger : true
 	    });
 	},
