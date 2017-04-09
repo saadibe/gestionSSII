@@ -122,3 +122,10 @@ a {
 	float: left;
 	margin-left: 30%;
 }
+#plotarea{
+	width: 500px;
+	height: 250px;
+	float:right;	
+	position: relative;
+	margin-top: -772px
+}
