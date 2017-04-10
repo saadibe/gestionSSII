@@ -47,8 +47,6 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    Application.router.navigate('gestionCandidats', {trigger : true}); 
 	},
 	render : function() {
-	    var headerView = new HeaderView();
-	    headerView.showMe();
 	    var template = Handlebars.compile(template_ajoutCandidat);
 	    this.$el.html(template);
 	    $("#contenu").append(this.$el);

@@ -20,7 +20,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/home.hbs',
 	},
 	render : function() {
 	    var headerView = new HeaderView();
-	    headerView.showMe();
+	    headerView.showMe(this.model);
 	    var template = Handlebars.compile(template_home);
 	    this.$el.html(template(this.model.toJSON()));
 	    $("#contenu").append(this.$el);

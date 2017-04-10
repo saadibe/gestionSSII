@@ -60,8 +60,6 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	    });
 	},
 	render : function() {
-	    var headerView = new HeaderView();
-	    headerView.showMe();
 	    var template = Handlebars.compile(template_gestionCandidats);
 	    this.$el.html(template({
 		candidats : this.model.toJSON()

@@ -9,16 +9,17 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	},
 	render : function() {
 	    var template = Handlebars.compile(template_header);
-	    this.$el.html(template);
+	    this.$el.html(template({user:this.model.toJSON()}));
 	    $("#header").append(this.$el);
 	    return this;
 	},
 	gestionCandidats:function(){
 	    Application.router.navigate('gestionCandidats', {trigger : true});
 	},
-	showMe : function() {
+	showMe : function(model) {
 	    if (!singleton) {
 		singleton = new HeaderView();
+		singleton.model = model
 	    }
 	    return singleton.render();
 	}

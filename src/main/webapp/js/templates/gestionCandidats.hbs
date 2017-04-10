@@ -1,30 +1,57 @@
-
-
-   <form class="form-inline">
-      <div class="form-group">
-         <label for="id">Id :</label>
-         <input type="text" class="form-control" id="Id">
-      </div>
-      <div class="form-group">
-         <label for="Nom">Nom:</label>
-         <input type="text" class="form-control" id="Nom">
-      </div>
-      <div class="form-group">
-         <label for="prenom">Pr&eacute;nom :</label>
-         <input type="text" class="form-control" id="prenom">
-      </div>
-      <div class="form-group">
-         <label for="domaine">Domaine de comp&eacute;tences :</label>
-         <input type="text" class="form-control" id="domaine">
-      </div>
-      <button data-toggle="collapse" data-target="#demo" type="submit" class="btn btn-default">Rechercher</button>
-   </form>
-
-<div id="demo" class="collapse">
-   <div class="form-group">
-         <label for="id">experience :</label>
-         <input type="text" class="form-control" id="experience">
-      </div>
+<div class="container">
+       <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="filter-col" style="margin-right:0;" for="pref-perpage">Id:</label>
+							<input type="text" class="form-control input-sm" id="id">                            
+                        </div> <!-- form group [rows] -->
+                        <div class="form-group">
+                            <label class="filter-col" style="margin-right:0;" for="pref-search">Nom:</label>
+                            <input type="text" class="form-control input-sm" id="pref-search">
+                        </div><!-- form group [search] -->
+						<div class="form-group">
+                            <label class="filter-col" style="margin-right:0;" for="pref-search">Prenom:</label>
+                            <input type="text" class="form-control input-sm" id="pref-search">
+                        </div><!-- form group [search] -->
+                        <div class="form-group">
+                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">sexe:</label>
+                            <select id="pref-orderby" class="form-control">
+                                <option>M</option>
+								<option>F</option>
+                            </select>                                
+                        </div> <!-- form group [order by] --> 
+                    </form>
+	<div class="row">
+        <div id="filter-panel" class="collapse filter-panel">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="filter-col" style="margin-right:0;" for="pref-perpage">experience:</label>
+							<input type="text" class="form-control input-sm" id="id">                            
+                        </div> <!-- form group [rows] -->
+                        <div class="form-group">
+                            <label class="filter-col" style="margin-right:0;" for="pref-search">domaine de competance:</label>
+                            <input type="text" class="form-control input-sm" id="pref-search">
+                        </div><!-- form group [search] -->
+						<div class="form-group">
+                            <label class="filter-col" style="margin-right:0;" for="pref-search">disponibilte:</label>
+                            <input type="text" class="form-control input-sm" id="pref-search">
+                        </div><!-- form group [search] -->
+                        <div class="form-group">
+                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">note:</label>
+                            <select id="pref-orderby" class="form-control">
+                                <option>M</option>
+								<option>F</option>
+                            </select>                                
+                        </div> <!-- form group [order by] --> 
+                    </form>
+                </div>
+            </div>
+        </div>    
+        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+            <span class="glyphicon glyphicon-cog"></span> Recherche avance
+        </button>
+	</div>
 </div>
 
 <div class="ajouter-candidat js-ajouter-candidat"></div>

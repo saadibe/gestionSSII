@@ -42,8 +42,6 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/jquery.flot',
 			});
 		},
 		render : function() {
-			var headerView = new HeaderView();
-			headerView.showMe();
 			var template = Handlebars.compile(template_afficherCandidat);
 			this.$el.html(template({
 				candidat : this.model.toJSON()
