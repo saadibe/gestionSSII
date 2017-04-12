@@ -26,12 +26,17 @@ require.config({
 	'lib/jquery.flot.categories':{
 		deps : [ "jquery","lib/jquery.flot"],
 		exports : 'JqueryFlotCategories'
+	},
+	'lib/multifilter':{
+		deps : [ "jquery"],
+		exports : 'Multifilter'
 	}
+	
     }
 });
 
 require([ "lib/bootstrap", "jquery", "lib/handlebars", "lib/underscore",
-	"lib/backbone", "lib/text", "main","lib/bootbox","lib/jquery.flot","lib/jquery.flot.categories" ]);
+	"lib/backbone", "lib/text", "main","lib/bootbox","lib/jquery.flot","lib/jquery.flot.categories","lib/multifilter" ]);
 
 var host = {
     url : "http://localhost:8080/gestionssii/"

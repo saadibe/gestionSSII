@@ -1,73 +1,49 @@
-<div class="container">
-       <form class="form-inline" role="form">
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-perpage">Id:</label>
-							<input type="text" class="form-control input-sm" id="id">                            
-                        </div> <!-- form group [rows] -->
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-search">Nom:</label>
-                            <input type="text" class="form-control input-sm" id="pref-search">
-                        </div><!-- form group [search] -->
-						<div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-search">Prenom:</label>
-                            <input type="text" class="form-control input-sm" id="pref-search">
-                        </div><!-- form group [search] -->
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">sexe:</label>
-                            <select id="pref-orderby" class="form-control">
-                                <option>M</option>
-								<option>F</option>
-                            </select>                                
-                        </div> <!-- form group [order by] --> 
-                    </form>
-	<div class="row">
-        <div id="filter-panel" class="collapse filter-panel">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <form class="form-inline" role="form">
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-perpage">experience:</label>
-							<input type="text" class="form-control input-sm" id="id">                            
-                        </div> <!-- form group [rows] -->
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-search">domaine de competance:</label>
-                            <input type="text" class="form-control input-sm" id="pref-search">
-                        </div><!-- form group [search] -->
-						<div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-search">disponibilte:</label>
-                            <input type="text" class="form-control input-sm" id="pref-search">
-                        </div><!-- form group [search] -->
-                        <div class="form-group">
-                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">note:</label>
-                            <select id="pref-orderby" class="form-control">
-                                <option>M</option>
-								<option>F</option>
-                            </select>                                
-                        </div> <!-- form group [order by] --> 
-                    </form>
-                </div>
-            </div>
-        </div>    
-        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
-            <span class="glyphicon glyphicon-cog"></span> Recherche avance
-        </button>
-	</div>
-</div>
 
+<div class="panel panel-primary"><div class="panel-heading">Recherche</div>
+<div class="panel-body"><div class='filters'>
+    <div class='filter-container'>
+	  <label>Id</label>
+      <input autocomplete='off' class='filter' name='Id' placeholder='Id' data-col='Id'/>
+    </div>
+    <div class='filter-container'>
+	  <label>Nom</label>
+      <input autocomplete='off' class='filter' name='Nom' placeholder='drink' data-col='Nom'/>
+    </div>
+    <div class='filter-container'>
+	  <label>Pr&eacute;nom</label>
+      <input autocomplete='off' class='filter' name='Pr&eacute;nom' placeholder='Pr&eacute;nom' data-col='Pr&eacute;nom'/>
+    </div>
+    <div class='filter-container'>
+	  <label>E-mail</label>
+      <input autocomplete='off' class='filter' name='E-mail' placeholder='E-mail' data-col='E-mail'/>
+    </div>
+	<div class='filter-container'>
+	  <label>Domaine de comp&eacute;tence</label>
+      <input autocomplete='off' class='filter' name='Domaine de comp&eacute;tence' placeholder='Domaine de comp&eacute;tence' data-col='Domaine de comp&eacute;tence'/>
+    </div>
+	<div class='filter-container'>
+	  <label>Note</label>
+      <input autocomplete='off' class='filter' name='Note' placeholder='Note' data-col='Note'/>
+    </div>
+    <div class='clearfix'></div>
+    <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+  </div></div></div>
+
+<div class="gestion-container">
 <div class="ajouter-candidat js-ajouter-candidat"></div>
-</div>
-
+<div class="panel panel-primary"><div class="panel-heading">Resultat</div>
+<div class="panel-body">
 <table class="table table-hover">
    <thead>
       <tr>
-         <th width= "5%"><i class="" aria-hidden="true"></i> Check</th>
-         <th width= "5%"><i class="" aria-hidden="true"></i> Id</th>
-         <th width= "10%"><i class="" aria-hidden="true"></i> Nom</th>
-         <th width= "10%"><i class="" aria-hidden="true"></i> Pr&eacute;nom</th>
-         <th width= "15%"><i class="" aria-hidden="true"></i> E-mail</th>
-         <th width= "20%"><i class="" aria-hidden="true"></i> Domaine de comp&eacute;tence</th>
-         <th width= "5%"><i class="" aria-hidden="true"></i> Note</th>
-         <th width= "30%"><i class="" aria-hidden="true"></i> Action</th>
+         <th width= "5%"><i class="" aria-hidden="true"></i>Check</th>
+         <th width= "5%"><i class="" aria-hidden="true"></i>Id</th>
+         <th width= "10%"><i class="" aria-hidden="true"></i>Nom</th>
+         <th width= "10%"><i class="" aria-hidden="true"></i>Pr&eacute;nom</th>
+         <th width= "15%"><i class="" aria-hidden="true"></i>E-mail</th>
+         <th width= "20%"><i class="" aria-hidden="true"></i>Domaine de comp&eacute;tence</th>
+         <th width= "5%"><i class="" aria-hidden="true"></i>Note</th>
+         <th width= "30%"><i class="" aria-hidden="true"></i>Action</th>
       </tr>
    </thead>
    <tbody>
@@ -91,4 +67,5 @@
       {{/each}}
    </tbody>
 </table>
+</div></div>
 </div>

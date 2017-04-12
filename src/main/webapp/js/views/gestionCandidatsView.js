@@ -65,6 +65,7 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 		candidats : this.model.toJSON()
 	    }));
 	    $("#contenu").append(this.$el);
+	    $('.filter').multifilter()
 	    this.delegateEvents();
 	    return this;
 	},
