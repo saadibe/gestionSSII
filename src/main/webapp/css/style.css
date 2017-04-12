@@ -15,6 +15,9 @@ body {
 .gestionCandidats {
 	margin: 20px;
 }
+.menu{
+cursor: pointer;	
+}
 
 .form-group {
 	margin-bottom: 15px;
@@ -50,9 +53,9 @@ body {
 }
 
 .message {
-	margin: auto;
-	width: 500px;
-	padding-top: 15%;
+margin: auto;
+    text-align: center;
+    padding-top: 15%;
 }
 
 .user {
@@ -71,6 +74,7 @@ a {
 	width: 100%;
 	margin-top: 10%;
 	position: absolute;
+	font: 15px arial, sans-serif;
 }
 
 .authentification-contenu {
@@ -169,4 +173,22 @@ legend.scheduler-border {
 .panel-primary {
 	border-color: #000000;
 	margin-bottom: 80px;
+}
+
+.filter-container {
+	float: left;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.right-rounded {
+	float: right;
+	margin-top: 10px;
+}
+.text-center {
+    text-align: center;
+    font-size: 22px;
+}
+.afficherCandidat{
+	margin: 30px;
 }
