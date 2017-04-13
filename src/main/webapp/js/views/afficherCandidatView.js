@@ -62,6 +62,8 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/jquery.flot',
 			candidat.fetch({
 				success : (function(model) {
 					singleton.model = model
+					singleton.model.set("birthDate" ,new Date(singleton.model.get("birthDate")).toLocaleString())
+					singleton.model.set("availability" ,new Date(singleton.model.get("availability")).toLocaleString())
 					singleton.render();
 					singleton.createDiagrammeCompetences()
 				}),

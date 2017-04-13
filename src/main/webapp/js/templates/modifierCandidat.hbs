@@ -1,0 +1,98 @@
+<div class="panel panel-primary"><div class="panel-heading">Modifier candidat</div>
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+   <div class="form-group ">
+      <label class="control-label " for="idCandidat">
+       nom
+      </label>
+      <input class="form-control" id="idCandidat" name="idCandidat" value="{{candidat.idCandidat}}" type="text"   />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="firstName">
+       nom
+      </label>
+      <input class="form-control" id="firstName" name="firstName" value="{{candidat.firstName}}" type="text"   />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="lastName">
+       prenom
+      </label>
+      <input class="form-control" id="lastName" name="lastName" value="{{candidat.lastName}}"  type="text"  />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="sexe">
+       sexe
+      </label>
+      <select class="select form-control" id="sexe" name="sexe" value="{{candidat.sexe}}"  >
+       <option value="Masculin">
+        Masculin
+       </option>
+       <option value="Feminin">
+        Feminin
+       </option>
+      </select>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="birthDate">
+       Date de naissance
+      </label>
+      <input type="date"  class="form-control" id="birthDate" name="birthDate" value="{{candidat.birthDate}}" />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="adresse">
+       adresse
+      </label>
+      <input class="form-control" id="adresse" name="adresse" type="text" value="{{candidat.adresse}}"  />
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="email">
+       Email
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="email" name="email" type="text" value="{{candidat.email}}"   />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="expertise">
+       domaine de comp&eacute;tance
+      </label>
+      <input class="form-control" id="expertise" name="expertise" type="text" value="{{candidat.expertise}}"  />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="experience">
+       Ann&eacute; d'experience
+      </label>
+      <input class="form-control" id="experience" name="experience" type="text" value="{{candidat.experience}}"  />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="cv">
+       cv
+      </label>
+      <input class="form-control" id="cv" name="cv" type="file" value="{{candidat.cv}}" />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="date1">
+       Disponiblit&eacute;
+      </label>
+      <input class="form-control" id="availability" name="availability"  type="date" value="{{candidat.availability}}"/>
+     </div>
+     <div class="form-group">
+      <div>
+      <button class="btn btn-primary js-retour" name="supprission" type="submit">
+        Retour
+       </button>
+        <button class="btn btn-primary js-modifier" name="modifier" type="submit">
+        modifier
+       </button>
+      </div>
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
+</div>
+

@@ -11,7 +11,9 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 
 	    "click .js-ajouter-candidat" : "ajoutCandidat",
 	    "click .js-supprimer-candidat" : "supprimerCandidat",
-	    "click .js-afficher-candidat" : "afficherCandidat"
+	    "click .js-afficher-candidat" : "afficherCandidat",
+	    "click .js-modifier-candidat" : "modifierCandidat",
+	    "click .js-inviter-candidat": "inviterCandidat"	
 
 	},
 	close : function() {
@@ -32,6 +34,20 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	    var candidatData = $(event.currentTarget).data();
 	    candidatId = candidatData.idcandidat;
 	    Application.router.navigate('afficherCandidat/'+candidatId, {
+		trigger : true
+	    });
+	},
+	modifierCandidat :function(event){
+	    var candidatData = $(event.currentTarget).data();
+	    candidatId = candidatData.idcandidat;
+	    Application.router.navigate('modifierCandidat/'+candidatId, {
+		trigger : true
+	    });
+	},
+	inviterCandidat:function(event){
+	    var candidatData = $(event.currentTarget).data();
+	    candidatId = candidatData.idcandidat;
+	    Application.router.navigate('inviterCandidat/'+candidatId, {
 		trigger : true
 	    });
 	},

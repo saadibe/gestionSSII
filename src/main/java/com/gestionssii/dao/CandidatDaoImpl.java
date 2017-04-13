@@ -23,7 +23,7 @@ public class CandidatDaoImpl implements CandidatDao {
 
 	@Override
 	public void saveCandidat(Candidat candiat) {
-		sessionFactory.getCurrentSession().save(candiat);
+		sessionFactory.getCurrentSession().saveOrUpdate(candiat);
 	}
 
 	@Override
