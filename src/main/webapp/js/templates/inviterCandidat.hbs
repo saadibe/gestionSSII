@@ -1,3 +1,85 @@
-<div class="panel panel-primary"><div class="panel-heading">Detail candidat</div>
-<h1>Candidat {{candidat.email}}</h1>
-</div></div>
+<div class="panel panel-primary"><div class="panel-heading">Invitation candidat</div>
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+     <div class="form-group ">
+      <label class="control-label " for="firstName">
+       nom : {{candidatExams.candidat.firstName}}
+      </label>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="lastName">
+       prenom : {{candidatExams.candidat.lastName}}
+      </label>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="sexe">
+       sexe : {{candidatExams.candidat.sexe}}
+      </label>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="birthDate">
+       Date de naissance : {{candidatExams.candidat.birthDate}}
+      </label>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="adresse">
+       adresse : {{candidatExams.candidat.adresse}}
+      </label>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="email">
+       Email : {{candidatExams.candidat.email}}
+      </label>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="expertise">
+       domaine de comp&eacute;tance : {{candidatExams.candidat.expertise}}
+      </label>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="experience">
+       Ann&eacute; d'experience : {{candidatExams.candidat.experience}}
+      </label>
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="inviterbox">
+    <div class="form-group ">
+      <label class="control-label " for="objet">
+       objet :
+      </label>
+      <input class="form-control" id="objet" name="objet"  type="text"   />
+	</div>
+	<div class="form-group ">
+      <label class="control-label " for="exams">
+       Choisir examen :
+      </label>
+      <select class="select form-control" id="exams"  name="exams"  >
+       {{#each candidatExams.exams}}
+       <option >
+       {{name}}
+       </option>
+       {{/each}}
+      </select>
+     </div>
+     <div class="form-group">
+    <label for="exampleTextarea">Message :</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+      <button class="btn btn-primary js-retour" name="supprission" type="submit">
+        Annuller
+       </button>
+      <button class="btn btn-primary js-retour" name="supprission" type="submit">
+        Envoyer
+       </button>
+
+     </div>
+</div>
+</div>
+</div>
+

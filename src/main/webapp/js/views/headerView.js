@@ -6,6 +6,7 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	tagName : "div",
 	events : {
 	    "click .js-gestionCandidats" : "gestionCandidats",
+	    "click .js-gestionExams":"gestionExams"
 	},
 	render : function() {
 	    var template = Handlebars.compile(template_header);
@@ -15,6 +16,9 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	},
 	gestionCandidats:function(){
 	    Application.router.navigate('gestionCandidats', {trigger : true});
+	},
+	gestionExams:function(){
+	    Application.router.navigate('gestionExams', {trigger : true});
 	},
 	showMe : function(model) {
 	    if (!singleton) {

@@ -12,6 +12,9 @@ define([ "lib/backbone" ], function(Backbone) {
 	    case "supprission":
 		return host.url + 'supprimerCandidat/' + this.candidatId;
 		break;
+	    case "invitation":
+		return host.url + 'afficherCandidatExams/' + this.candidatId;
+		break;
 	    default:
 	      return
 	  }

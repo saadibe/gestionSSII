@@ -1,0 +1,62 @@
+
+<div class="panel panel-primary"><div class="panel-heading">Recherche</div>
+<div class="panel-body"><div class='filters'>
+    <div class='filter-container'>
+	  <label>Nom</label>
+      <input autocomplete='off' class='filter' name='Nom' placeholder='Nom' data-col='Nom'/>
+    </div>
+    <div class='filter-container'>
+	  <label>domaine</label>
+      <input autocomplete='off' class='filter' name='domaine' placeholder='domaine' data-col='domaine'/>
+    </div>
+    <div class='filter-container'>
+	  <label>niveau</label>
+      <input autocomplete='off' class='filter' name='niveau' placeholder='niveau' data-col='niveau'/>
+    </div>
+	<div class='filter-container'>
+	  <label>dur&eacute;e</label>
+      <input autocomplete='off' class='filter' name='dur&eacute;e' placeholder='dur&eacute;e' data-col='dur&eacute;e'/>
+    </div>
+	<div class='filter-container'>
+	  <label>active</label>
+      <input autocomplete='off' class='filter' name='active' placeholder='active' data-col='active'/>
+    </div>
+    <div class='clearfix'></div>
+    <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+  </div></div></div>
+
+<div class="gestion-container">
+<div class="ajouter-exam js-ajouter-exam"></div>
+<div class="panel panel-primary"><div class="panel-heading">Examens</div>
+<div class="panel-body">
+<table class="table table-hover">
+   <thead>
+      <tr>
+         <th width= "5%"><i class="" aria-hidden="true"></i>Check</th>
+         <th width= "10%"><i class="" aria-hidden="true"></i>Nom</th>
+         <th width= "10%"><i class="" aria-hidden="true"></i>domaine</th>
+         <th width= "15%"><i class="" aria-hidden="true"></i>niveau</th>
+         <th width= "20%"><i class="" aria-hidden="true"></i>dur&eacute;e</th>
+         <th width= "5%"><i class="" aria-hidden="true"></i>active</th>
+         <th width= "30%"><i class="" aria-hidden="true"></i>Action</th>
+      </tr>
+   </thead>
+   <tbody>
+      {{#each exams}}        
+      <tr class="clickable-row" data-exam-id="{{idExams}}">
+         <td class="check"><input type="checkbox" id="cbox1" value="checkbox1"></td>
+         <td class="">{{name}}</td>
+         <td class="">{{expertise}}</td>
+         <td class="">{{level}}</td>
+         <td class="">{{time}}</td>
+         <td class="">{{active}}</td>
+         <td class="">
+            <div class="afficher js-afficher-Exams" data-idExams="{{idExams}}"></div>
+            <div class="update js-modifier-Exams" data-idExams="{{idExams}}"></div>
+            <div class="supprimer js-supprimer-Exams" data-idExams="{{idExams}}" ></div>
+         </td>
+      </tr>
+      {{/each}}
+   </tbody>
+</table>
+</div>

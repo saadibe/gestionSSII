@@ -2,10 +2,6 @@
 <div class="panel panel-primary"><div class="panel-heading">Recherche</div>
 <div class="panel-body"><div class='filters'>
     <div class='filter-container'>
-	  <label>Id</label>
-      <input autocomplete='off' class='filter' name='Id' placeholder='Id' data-col='Id'/>
-    </div>
-    <div class='filter-container'>
 	  <label>Nom</label>
       <input autocomplete='off' class='filter' name='Nom' placeholder='Nom' data-col='Nom'/>
     </div>
@@ -37,7 +33,6 @@
    <thead>
       <tr>
          <th width= "5%"><i class="" aria-hidden="true"></i>Check</th>
-         <th width= "5%"><i class="" aria-hidden="true"></i>Id</th>
          <th width= "10%"><i class="" aria-hidden="true"></i>Nom</th>
          <th width= "10%"><i class="" aria-hidden="true"></i>Pr&eacute;nom</th>
          <th width= "15%"><i class="" aria-hidden="true"></i>E-mail</th>
@@ -51,7 +46,6 @@
        {{#if isactive}}         
       <tr class="clickable-row" data-candidat-id="{{idCandidat}}">
          <td class="check"><input type="checkbox" id="cbox1" value="checkbox1"></td>
-         <td class="candidatid">{{idCandidat}}</td>
          <td class="firstName">{{firstName}}</td>
          <td class="">{{lastName}}</td>
          <td class="">{{email}}</td>

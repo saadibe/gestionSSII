@@ -28,7 +28,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	render : function() {
 	    var template = Handlebars.compile(template_inviterCandidat);
 	    this.$el.html(template({
-		candidat : this.model.toJSON()
+		candidatExams : this.model.toJSON()
 	    }));
 	    $("#contenu").append(this.$el);
 	    this.delegateEvents();
@@ -40,16 +40,15 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    }
 	    candidat = new Candidat({
 		candidatId : candidatId,
-		action : "affichage"
+		action : "invitation"
 	    });
-
 	    candidat.fetch({
 		success : (function(model) {
 		    singleton.model = model
 		    singleton.render();
 		}),
 		error : (function(e) {
-		    console.log(' Service request failure: ' + e);
+		    console.log('Service request failure: ' + e);
 		}),
 	    })
 	    return singleton;

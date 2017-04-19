@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gestionssii.DTO.CandidatDTO;
+import com.gestionssii.DTO.CandidatExamsDTO;
 import com.gestionssii.service.CandidatService;
 
 @Controller
@@ -75,6 +76,18 @@ public class CandidatController {
 			e.printStackTrace();
 		}
 
-		return candidatService.getCandidatById(idcandidat);
+		return null;
+	}
+	@RequestMapping(value = "/afficherCandidatExams/{candidatId}", method = RequestMethod.GET)
+	public @ResponseBody CandidatExamsDTO getCandidatExamsById(HttpServletRequest request, @PathVariable String candidatId)
+			throws Exception {
+		int idcandidat = Integer.parseInt(candidatId);
+		try {
+			return candidatService.getCandidatExamsById(idcandidat);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 }
