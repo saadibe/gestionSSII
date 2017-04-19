@@ -223,3 +223,6 @@ legend.scheduler-border {
 	margin-left: 600px;
 	width: 50%;
 }
+.hiden{
+	display: none;
+}

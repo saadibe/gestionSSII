@@ -71,16 +71,17 @@ public class CandidatController {
 			throws Exception {
 		int idcandidat = Integer.parseInt(candidatId);
 		try {
-			candidatService.getCandidatById(idcandidat);
+			return candidatService.getCandidatById(idcandidat);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return null;
 	}
+
 	@RequestMapping(value = "/afficherCandidatExams/{candidatId}", method = RequestMethod.GET)
-	public @ResponseBody CandidatExamsDTO getCandidatExamsById(HttpServletRequest request, @PathVariable String candidatId)
-			throws Exception {
+	public @ResponseBody CandidatExamsDTO getCandidatExamsById(HttpServletRequest request,
+			@PathVariable String candidatId) throws Exception {
 		int idcandidat = Integer.parseInt(candidatId);
 		try {
 			return candidatService.getCandidatExamsById(idcandidat);
