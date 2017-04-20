@@ -1,13 +1,15 @@
 define([ 'lib/handlebars', 'lib/backbone',
 	'lib/text!templates/inviterCandidat.hbs', 'views/headerView',
-	"models/candidat" ], function(Handlebars, Backbone,
-	template_inviterCandidat, HeaderView, Candidat) {
+	"models/candidat", "models/invitationExam" ], function(Handlebars,
+	Backbone, template_inviterCandidat, HeaderView, Candidat,
+	InvitationExam) {
     var singleton;
     var InviterCandidatView = Backbone.View.extend({
 	tagName : "div",
 	className : "inviterCandidat",
 	events : {
-	    "click .js-retour" : "retourGestionCandidat"
+	    "click .js-annuller" : "retourGestionCandidat",
+	    "click .js-envoyer" : "envoyerInvitation"
 
 	},
 	close : function() {
@@ -24,7 +26,19 @@ define([ 'lib/handlebars', 'lib/backbone',
 		trigger : true
 	    });
 	},
+	envoyerInvitation : function(event) {
+	    var candidatEmail = $("input[name=email]").val();
+	    var invitationExam = new InvitationExam({email:candidatEmail})
+	    invitationExam.save(invitationExam.toJSON() ,{
+		success: function(model) {
+		    Application.router.navigate('gestionCandidats', {trigger : true});
+                },
+                error: function(model, response) {
+                    console.log("response"+response)
+                }
+	    })
 
+	},
 	render : function() {
 	    var template = Handlebars.compile(template_inviterCandidat);
 	    this.$el.html(template({

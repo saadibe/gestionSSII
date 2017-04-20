@@ -31,6 +31,7 @@
      <div class="form-group ">
       <label class="control-label requiredField" for="email">
        Email : {{candidatExams.candidat.email}}
+       <input class="form-control hiden" id="email" name="email" type="text" value="{{candidatExams.candidat.email}}"   />
       </label>
      </div>
      <div class="form-group ">
@@ -71,13 +72,12 @@
     <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
   </div>
   <div class="form-group">
-      <button class="btn btn-primary js-retour" name="supprission" type="submit">
+      <button class="btn btn-primary js-annuller" name="annuller" type="submit">
         Annuller
        </button>
-      <button class="btn btn-primary js-retour" name="supprission" type="submit">
+      <button class="btn btn-primary js-envoyer" name="envoyer" type="submit">
         Envoyer
        </button>
-
      </div>
 </div>
 </div>
