@@ -17,7 +17,7 @@ public class SendEmailController {
 	SendMail sendMail;
 
 	@RequestMapping(value = "/sendMail", method = RequestMethod.POST)
-	public @ResponseBody String addCandidat(@RequestBody Map request) {
+	public @ResponseBody String sendEmail(@RequestBody Map request) {
 		Assert.notNull(request);
 		String email = (String) request.get("email");
 		sendMail.sendEmail(email);

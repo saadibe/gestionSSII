@@ -46,7 +46,6 @@ public class CandidatController {
 			String availability = (String) request.get("availability");
 			Date birthdate = formatter.parse(birthDate);
 			Date availabilityDate = formatter.parse(availability);
-
 			request.put("birthDate", birthdate);
 			request.put("availability", availabilityDate);
 			BeanUtils.copyProperties(candidatDto, request);

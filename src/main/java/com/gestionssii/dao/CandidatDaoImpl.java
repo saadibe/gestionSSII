@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gestionssii.DTO.CandidatDTO;
 import com.gestionssii.model.Candidat;
-import com.gestionssii.model.User;
+
 
 @Repository
 public class CandidatDaoImpl implements CandidatDao {
