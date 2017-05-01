@@ -7,4 +7,6 @@ public interface ExamsDao {
 
 	List<Exams> getAllExams() throws Exception;
 
+	Exams getExamById(int idExam) throws Exception;
+
 }

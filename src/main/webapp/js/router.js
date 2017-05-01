@@ -2,12 +2,12 @@ define(
 	[ "lib/backbone", "views/authentificationView", "views/homeView",
 		'models/user', "views/gestionCandidatsView",
 		"views/ajoutCandidatView", "views/afficherCandidatView",
-		"views/modifierCandidatView","views/inviterCandidatView","views/gestionExamsView" ],
+		"views/modifierCandidatView","views/inviterCandidatView","views/gestionExamsView","views/afficherExamView" ],
 	function(Backbone, AuthentificationView, HomeView, User,
 		GestionCandidats, AjoutCandidat, AfficherCandidat,
-		ModifierCandidat,InviterCandidat,GestionExams) {
+		ModifierCandidat,InviterCandidat,GestionExams,AfficherExam) {
 	    var gestionCandidats = new GestionCandidats(), homeView = new HomeView(), authentificationView = new AuthentificationView(), ajoutCandidat = new AjoutCandidat(), afficherCandidat = new AfficherCandidat(),
-	    modifierCandidat = new ModifierCandidat(),inviterCandidat = new InviterCandidat(),gestionExams= new GestionExams();
+	    modifierCandidat = new ModifierCandidat(),inviterCandidat = new InviterCandidat(),gestionExams= new GestionExams(),afficherExam = new AfficherExam();
 	    var Router = Backbone.Router.extend({
 		routes : {
 		    '' : 'index',
@@ -17,7 +17,8 @@ define(
 		    'afficherCandidat/:candidatId' : 'afficherCandidat',
 		    'modifierCandidat/:candidatId' : 'modifierCandidat',
 		    'inviterCandidat/:candidatId' : 'inviterCandidat',
-		     'gestionExams':'gestionExams'
+		    'gestionExams':'gestionExams',
+		    'afficherExam/:examId':'afficherExam'
 		},
 
 		activeView : null,
@@ -61,6 +62,10 @@ define(
 		gestionExams : function(candidatId) {
 		    this.closeActiveView();
 		    this.activeView = gestionExams.showMe(candidatId);
+		},
+		afficherExam:function(examId){
+			this.closeActiveView();
+			this.activeView = afficherExam.showMe(examId);
 		},
 	    });
 	    return Router;

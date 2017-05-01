@@ -17,4 +17,10 @@ public class ExamsDaoImpl implements ExamsDao {
 	public List<Exams> getAllExams() throws Exception {
 		return sessionFactory.getCurrentSession().createQuery("From Exams").list();
 	}
+
+
+	public Exams getExamById(int idExam) throws Exception {
+		
+		return (Exams) sessionFactory.getCurrentSession().get(Exams.class, idExam);
+	}
 }

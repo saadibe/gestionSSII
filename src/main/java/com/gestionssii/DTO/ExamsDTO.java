@@ -1,13 +1,22 @@
 package com.gestionssii.DTO;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ExamsDTO {
 	
 	private int idExams;
 	private String name;
 	private String expertise;
-	private String level;
+	private int level;
 	private int time;
 	private int active;
+	private List<QuestionDTO> questions = new ArrayList<QuestionDTO>();
 	
 	public int getIdExams() {
 		return idExams;
@@ -18,7 +27,7 @@ public class ExamsDTO {
 	public String getExpertise() {
 		return expertise;
 	}
-	public String getLevel() {
+	public int getLevel() {
 		return level;
 	}
 	public int getTime() {
@@ -36,7 +45,7 @@ public class ExamsDTO {
 	public void setExpertise(String expertise) {
 		this.expertise = expertise;
 	}
-	public void setLevel(String level) {
+	public void setLevel(int level) {
 		this.level = level;
 	}
 	public void setTime(int time) {
@@ -44,6 +53,12 @@ public class ExamsDTO {
 	}
 	public void setActive(int active) {
 		this.active = active;
+	}
+	public List<QuestionDTO> getQuestions() {
+		return questions;
+	}
+	public void setQuestions(List<QuestionDTO> questions) {
+		this.questions = questions;
 	}
 
 }
