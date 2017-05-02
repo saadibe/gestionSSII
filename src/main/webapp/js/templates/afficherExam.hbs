@@ -1,23 +1,24 @@
 <div class="panel panel-primary"><div class="panel-heading">Detail candidat</div>
 <div class="container">
+<div class="sperateur">
   <div class="form-group ">
       <label class="control-label " for="name">
-       Nom : {{exam.name}}
+       Nom d'examen : {{exam.name}}
       </label>
      </div>
       <div class="form-group ">
       <label class="control-label " for="expertise">
-       Domaine  : {{exam.expertise}}
+       Domaine de competance  : {{exam.expertise}}
       </label>
      </div>
       <div class="form-group ">
       <label class="control-label " for="level">
-       Niveau : {{exam.level}}
+       Niveau d'examen : {{exam.level}}
       </label>
      </div>
       <div class="form-group ">
       <label class="control-label " for="time">
-       Temp : {{exam.time}}
+       Temp d examen : {{exam.time}}
       </label>
      </div>
      <div class="form-group ">
@@ -25,6 +26,7 @@
        Active : {{exam.active}}
       </label>
      </div>
+    </div>
   <div class="panel-group" id="accordion">
    {{#each exam.questions}}
    <p>categorie: {{categorie.description}}<p>
