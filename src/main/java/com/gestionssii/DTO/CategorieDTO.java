@@ -1,11 +1,5 @@
 package com.gestionssii.DTO;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CategorieDTO {
 
 	private Integer idCategorie;

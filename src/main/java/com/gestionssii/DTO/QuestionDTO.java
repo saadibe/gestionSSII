@@ -8,12 +8,11 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class QuestionDTO {
 
 	private Integer idQuestion;
-	//private CategorieDTO categorie;
+	private CategorieDTO categorie;
 	private ExamsDTO exams;
 	private String description;
 	private List<ReponseDTO> reponses = new ArrayList<ReponseDTO>();
@@ -21,7 +20,6 @@ public class QuestionDTO {
 	public QuestionDTO() {
 	}
 
-	
 	public Integer getIdQuestion() {
 		return this.idQuestion;
 	}
@@ -30,11 +28,6 @@ public class QuestionDTO {
 		this.idQuestion = idQuestion;
 	}
 
-
-
-
-
-
 	public ExamsDTO getExams() {
 		return this.exams;
 	}
@@ -42,7 +35,6 @@ public class QuestionDTO {
 	public void setExams(ExamsDTO exams) {
 		this.exams = exams;
 	}
-
 
 	public String getDescription() {
 		return this.description;
@@ -58,6 +50,14 @@ public class QuestionDTO {
 
 	public void setReponses(List<ReponseDTO> reponses) {
 		this.reponses = reponses;
+	}
+
+	public CategorieDTO getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(CategorieDTO categorie) {
+		this.categorie = categorie;
 	}
 
 }

@@ -3,9 +3,8 @@ package com.gestionssii.DTO;
 public class ReponseDTO {
 
 	private Integer idReponse;
-	//private QuestionDTO question;
 	private String description;
-	private Integer isGoodreponse;
+	private boolean isGoodreponse;
 
 	public ReponseDTO() {
 	}
@@ -27,11 +26,11 @@ public class ReponseDTO {
 		this.description = description;
 	}
 
-	public Integer getIsGoodreponse() {
+	public boolean getIsGoodreponse() {
 		return this.isGoodreponse;
 	}
 
-	public void setIsGoodreponse(Integer isGoodreponse) {
+	public void setIsGoodreponse(boolean isGoodreponse) {
 		this.isGoodreponse = isGoodreponse;
 	}
 

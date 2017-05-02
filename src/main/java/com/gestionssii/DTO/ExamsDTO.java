@@ -1,13 +1,8 @@
 package com.gestionssii.DTO;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ExamsDTO {
 	
 	private int idExams;

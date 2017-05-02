@@ -9,6 +9,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gestionssii.DTO.CategorieDTO;
 import com.gestionssii.DTO.ExamsDTO;
 import com.gestionssii.DTO.QuestionDTO;
 import com.gestionssii.DTO.ReponseDTO;
@@ -44,10 +45,18 @@ public class ExamsServiceImpl implements ExamsService {
 				ReponseDTO reponsedto = new ReponseDTO();
 				reponsedto.setDescription(reponse.getDescription());
 				reponsedto.setIdReponse(reponse.getIdReponse());
-				reponsedto.setIsGoodreponse(reponse.getIsGoodreponse());
+				if(reponse.getIsGoodreponse() == 1){
+					reponsedto.setIsGoodreponse(true);
+				}else{
+					reponsedto.setIsGoodreponse(false);
+				}
+				
 				reponsesDTO.add(reponsedto);
 			}
 			questiondto.setReponses(reponsesDTO);
+			CategorieDTO categorieDTO= new CategorieDTO();
+			categorieDTO.setDescription(question.getCategorie().getDescription());
+			questiondto.setCategorie(categorieDTO);
 			questionsDTO.add(questiondto);
 			examDto.setQuestions(questionsDTO);
 		}

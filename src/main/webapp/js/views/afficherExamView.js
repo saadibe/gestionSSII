@@ -16,6 +16,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/jquery.flot',
 				this.model.off(null, null, this);
 			}
 		},
+		
 		retourGestionExam : function() {
 			Application.router.navigate('gestionExams', {
 				trigger : true
@@ -24,6 +25,10 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/jquery.flot',
 
 		render : function() {
 			var template = Handlebars.compile(template_afficherExam);
+			Handlebars.registerHelper("inc", function(value, options)
+				{
+				    return parseInt(value) + 1;
+				});
 			this.$el.html(template({exam : this.model.toJSON()}));
 			$("#contenu").append(this.$el);
 			this.delegateEvents();

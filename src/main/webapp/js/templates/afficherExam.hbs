@@ -1,44 +1,48 @@
-<div class="panel panel-primary"><div class="panel-heading">passage D examen</div>
+<div class="panel panel-primary"><div class="panel-heading">Detail candidat</div>
 <div class="container">
-  <h2>{{exam.name}}</h2>
-  <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+  <div class="form-group ">
+      <label class="control-label " for="name">
+       Nom : {{exam.name}}
+      </label>
+     </div>
+      <div class="form-group ">
+      <label class="control-label " for="expertise">
+       Domaine  : {{exam.expertise}}
+      </label>
+     </div>
+      <div class="form-group ">
+      <label class="control-label " for="level">
+       Niveau : {{exam.level}}
+      </label>
+     </div>
+      <div class="form-group ">
+      <label class="control-label " for="time">
+       Temp : {{exam.time}}
+      </label>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="active">
+       Active : {{exam.active}}
+      </label>
+     </div>
   <div class="panel-group" id="accordion">
+   {{#each exam.questions}}
+   <p>categorie: {{categorie.description}}<p>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{inc @index}}">Question {{inc @index}} : {{description}}</a>
         </h4>
       </div>
-      <div id="collapse1" class="panel-collapse collapse in">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      <div id="collapse{{inc @index}}" class="panel-collapse collapse in">
+        <div class="panel-body"> 
+        {{#each reponses}}
+        <p>{{description}} <input type="checkbox" {{#if isGoodreponse}}  checked="checked" {{/if}} disabled>  </p>
+        {{/each}} 
+        </div>
       </div>
     </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
-        </h4>
-      </div>
-      <div id="collapse2" class="panel-collapse collapse">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
-        </h4>
-      </div>
-      <div id="collapse3" class="panel-collapse collapse">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      </div>
-    </div>
+	{{/each}}
   </div> 
 </div>
 </div>
