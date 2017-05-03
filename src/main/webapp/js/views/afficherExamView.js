@@ -38,7 +38,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/jquery.flot',
 			if (!singleton) {
 				singleton = new AfficherExamView();
 			}
-			exam = new Exam({
+			exam = new Exam({action:'affichage',
 				examId : examId
 			});
 			exam.fetch({

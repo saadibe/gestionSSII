@@ -1,7 +1,9 @@
 package com.gestionssii.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -45,16 +47,16 @@ public class ExamsServiceImpl implements ExamsService {
 				ReponseDTO reponsedto = new ReponseDTO();
 				reponsedto.setDescription(reponse.getDescription());
 				reponsedto.setIdReponse(reponse.getIdReponse());
-				if(reponse.getIsGoodreponse() == 1){
+				if (reponse.getIsGoodreponse() == 1) {
 					reponsedto.setIsGoodreponse(true);
-				}else{
+				} else {
 					reponsedto.setIsGoodreponse(false);
 				}
-				
+
 				reponsesDTO.add(reponsedto);
 			}
 			questiondto.setReponses(reponsesDTO);
-			CategorieDTO categorieDTO= new CategorieDTO();
+			CategorieDTO categorieDTO = new CategorieDTO();
 			categorieDTO.setDescription(question.getCategorie().getDescription());
 			questiondto.setCategorie(categorieDTO);
 			questionsDTO.add(questiondto);
@@ -78,5 +80,26 @@ public class ExamsServiceImpl implements ExamsService {
 			examsDto.add(examDto);
 		}
 		return examsDto;
+	}
+
+	@Transactional
+	public boolean addExam(ExamsDTO examsDTO) throws Exception {
+		Exams exam = new Exams();
+		exam.setActive(examsDTO.getActive());
+		exam.setExpertise(examsDTO.getExpertise());
+		exam.setLevel(examsDTO.getLevel());
+		exam.setName(examsDTO.getName());
+		Set set = new HashSet(examsDTO.getQuestions());
+		exam.setQuestions(set);
+		exam.setTime(examsDTO.getTime());
+		examDao.addExam(exam);
+		return true;
+	}
+
+	@Transactional
+	public void deleteExam(int examId) throws Exception {
+		Exams exam = examDao.getExamById(examId);
+		examDao.deleteExam(exam);
+
 	}
 }

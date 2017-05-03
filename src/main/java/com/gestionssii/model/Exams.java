@@ -3,6 +3,8 @@ package com.gestionssii.model;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -93,7 +95,7 @@ public class Exams implements java.io.Serializable {
 		this.active = active;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "exams")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "exams",cascade = CascadeType.REMOVE)
 	public Set<Question> getQuestions() {
 		return this.questions;
 	}

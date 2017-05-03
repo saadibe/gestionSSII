@@ -9,4 +9,8 @@ public interface ExamsDao {
 
 	Exams getExamById(int idExam) throws Exception;
 
+	void addExam(Exams exam)  throws Exception ;
+
+	void deleteExam(Exams exam);
+
 }

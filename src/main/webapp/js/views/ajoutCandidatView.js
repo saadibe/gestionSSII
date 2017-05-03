@@ -50,6 +50,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    var template = Handlebars.compile(template_ajoutCandidat);
 	    this.$el.html(template);
 	    $("#contenu").append(this.$el);
+	    this.delegateEvents();
 	    return this;
 	},
 	showMe : function() {

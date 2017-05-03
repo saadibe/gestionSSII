@@ -3,6 +3,8 @@ package com.gestionssii.model;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -48,7 +50,7 @@ public class Question implements java.io.Serializable {
 		this.idQuestion = idQuestion;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idCategorie", nullable = false)
 	public Categorie getCategorie() {
 		return this.categorie;
@@ -58,7 +60,7 @@ public class Question implements java.io.Serializable {
 		this.categorie = categorie;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idExams", nullable = false)
 	public Exams getExams() {
 		return this.exams;
@@ -77,7 +79,7 @@ public class Question implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "question")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "question",cascade = CascadeType.REMOVE)
 	public Set<Reponse> getReponses() {
 		return this.reponses;
 	}
