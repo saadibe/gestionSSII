@@ -1,8 +1,9 @@
 body {
-	background-color: #fcfdf9;
-	font-family: arial, sans-serif;
-	font-size: 15px;
-	line-height: 1.5;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    background-color: #EEEEEE;
+    color: #3C4858;
 }
 
 #container {
@@ -172,8 +173,8 @@ a {
 
 .deconnexion {
 	background: url(../img/deconnexion.png) top left no-repeat;
-	width: 30px;
-	height: 30px;
+	width: 20px;
+	height: 20px;
 	float: right;
 	margin-top: -20px;
 	cursor: pointer;
@@ -201,14 +202,22 @@ legend.scheduler-border {
 }
 
 .panel-primary>.panel-heading {
-	color: #fff;
-	background-color: #60626f;
-	border-color: #020202;
+    color: rgb(10, 10, 10);
+    background-color: #EEEEEE;
+    border-color: rgba(2, 2, 2, 0.07);
+    font-weight: bold;
 }
 
 .panel-primary {
 	border-color: #000000;
-	margin-bottom: 80px;
+    margin-bottom: 80px;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 17px 25px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 3px;
+    color: rgba(0,0,0, 0.87);
+    background: #fff;
 }
 
 .filter-container {
@@ -247,6 +256,7 @@ legend.scheduler-border {
 	padding: 0;
 	color: #f1f1f1;
 	letter-spacing: 1px;
+	box-shadow: 0 11px 9px 0 rgba(0, 0, 0, 0.14);
 }
 
 .sperateur {
