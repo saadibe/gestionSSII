@@ -33,6 +33,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/home.hbs',
 		singleton = new HomeView();
 	    }
 	    var user = new User({
+		action:"affichage",
 		userId : userId
 	    });
 	    user.fetch({

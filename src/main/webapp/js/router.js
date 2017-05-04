@@ -2,12 +2,14 @@ define(
 	[ "lib/backbone", "views/authentificationView", "views/homeView",
 		'models/user', "views/gestionCandidatsView",
 		"views/ajoutCandidatView", "views/afficherCandidatView",
-		"views/modifierCandidatView","views/inviterCandidatView","views/gestionExamsView","views/afficherExamView","views/ajoutExamView" ],
+		"views/modifierCandidatView","views/inviterCandidatView","views/gestionExamsView","views/afficherExamView","views/ajoutExamView","views/gestionUsersView","views/ajoutUserView" ],
 	function(Backbone, AuthentificationView, HomeView, User,
 		GestionCandidats, AjoutCandidat, AfficherCandidat,
-		ModifierCandidat,InviterCandidat,GestionExams,AfficherExam,AjoutExam) {
+		ModifierCandidat,InviterCandidat,GestionExams,AfficherExam,AjoutExam,GestionUsers,AjouterUser) {
 	    var gestionCandidats = new GestionCandidats(), homeView = new HomeView(), authentificationView = new AuthentificationView(), ajoutCandidat = new AjoutCandidat(), afficherCandidat = new AfficherCandidat(),
-	    modifierCandidat = new ModifierCandidat(),inviterCandidat = new InviterCandidat(),gestionExams= new GestionExams(),afficherExam = new AfficherExam(),ajoutExam = new AjoutExam();
+	    modifierCandidat = new ModifierCandidat(),inviterCandidat = new InviterCandidat(),gestionExams= new GestionExams(),afficherExam = new AfficherExam(),ajoutExam = new AjoutExam(),gestionUsers = new GestionUsers(),
+	    ajouterUser = new AjouterUser(); 
+	    
 	    var Router = Backbone.Router.extend({
 		routes : {
 		    '' : 'index',
@@ -19,7 +21,9 @@ define(
 		    'inviterCandidat/:candidatId' : 'inviterCandidat',
 		    'gestionExams':'gestionExams',
 		    'afficherExam/:examId':'afficherExam',
-		     'ajoutExam':'ajoutExam'	
+		     'ajoutExam':'ajoutExam',
+		     'gestionUsers':'gestionUsers',
+		     'ajoutUser':'ajoutUser'
 		},
 
 		activeView : null,
@@ -71,6 +75,14 @@ define(
 		ajoutExam:function(){
 			this.closeActiveView();
 			this.activeView = ajoutExam.showMe();
+		},
+		gestionUsers:function(){
+			this.closeActiveView();
+			this.activeView = gestionUsers.showMe();
+		},
+		ajoutUser:function(){
+			this.closeActiveView();
+			this.activeView = ajouterUser.showMe();
 		},
 	    });
 	    return Router;

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserDTO {
 
-	private int userId;
+	private Integer userId;
 	private String firstName;
 	private String lastName;
 	private String sexe;
@@ -13,12 +13,14 @@ public class UserDTO {
 	private String password;
 	private String createDate;
 	private Date updateDate;
+	private String login;
 
-	public int getUserId() {
+
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
@@ -84,6 +86,14 @@ public class UserDTO {
 
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 }

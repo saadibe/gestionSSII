@@ -32,4 +32,14 @@ public class UserDaoImpl implements UserDao {
 		}
 		return null;
 	}
+
+	@Override
+	public List<User> getusers() {
+		return sessionFactory.getCurrentSession().createQuery("From User").list();
+	}
+
+	@Override
+	public void saveCandidat(User user) {
+		sessionFactory.getCurrentSession().saveOrUpdate(user);
+	}
 }
