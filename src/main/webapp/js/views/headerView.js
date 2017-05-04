@@ -36,6 +36,10 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	showMe : function(model) {
 	    if (!singleton) {
 		singleton = new HeaderView();
+		model.set("isAdmin",false)
+		if(model.get("profile") == "Administrateur"){
+			model.set("isAdmin",true)
+		}
 		singleton.model = model
 	    }
 	    return singleton.render();

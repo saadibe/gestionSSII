@@ -14,7 +14,9 @@
 	 <li></li>
 	<li><a class="js-gestionCandidats menu">Gestion des candidats |</a></li><!-- -->
 	<li><a class="js-gestionExams menu">Gestion des examens |</a></li><!-- -->
+	{{#if user.isAdmin}}
 	<li><a class="js-gestionUsers menu">Gestion des utilisateurs |</a></li><!-- -->
+	{{/if}}
 	<li><a href="#">Messages |</a></li><!-- -->
 	<li><a href="#">Aide</a></li><!-- -->
           </ul>
