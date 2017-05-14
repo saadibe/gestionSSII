@@ -1,13 +1,15 @@
 package com.gestionssii.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.beanutils.BeanUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -19,10 +21,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gestionssii.DTO.CandidatDTO;
 import com.gestionssii.DTO.ExamsDTO;
+import com.gestionssii.DTO.QuestionDTO;
 import com.gestionssii.service.ExamsService;
 
+
 @Controller
-public class ExamsController {
+public class ExamsController<E> {
 
 	@Autowired
 	private ExamsService examsService;
@@ -43,12 +47,22 @@ public class ExamsController {
 		boolean isaddExam = false;
 		try {
 			ExamsDTO examsDTO = new ExamsDTO();
+			List<QuestionDTO> questions = new ArrayList<QuestionDTO>();
 			examsDTO.setName((String)request.get("name"));
 			examsDTO.setActive(1);
 			examsDTO.setExpertise((String)request.get("expertise"));
 			examsDTO.setLevel(1);
 			examsDTO.setTime(30);
-			examsDTO.setQuestions((List)request.get("question"));
+			JSONObject jsonResponse = new JSONObject(request.get("question").toString());
+			JSONArray questionsArray = jsonResponse.getJSONArray("questions");
+			for (int i=0; i<questionsArray.length(); i++) {
+				QuestionDTO questionDto = new QuestionDTO();
+			    JSONObject question = questionsArray.getJSONObject(i);
+			    String description = question.getString("description");	
+			    questionDto.setDescription(description);
+			    questions.add(questionDto);
+			}
+			examsDTO.setQuestions(questions);
 			isaddExam = examsService.addExam(examsDTO);
 		} catch (Exception e) {
 			e.printStackTrace();

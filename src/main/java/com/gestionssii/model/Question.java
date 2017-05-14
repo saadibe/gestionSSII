@@ -50,7 +50,7 @@ public class Question implements java.io.Serializable {
 		this.idQuestion = idQuestion;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name = "idCategorie", nullable = false)
 	public Categorie getCategorie() {
 		return this.categorie;
@@ -60,7 +60,7 @@ public class Question implements java.io.Serializable {
 		this.categorie = categorie;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name = "idExams", nullable = false)
 	public Exams getExams() {
 		return this.exams;
@@ -79,7 +79,7 @@ public class Question implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "question",cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "question",cascade = CascadeType.ALL)
 	public Set<Reponse> getReponses() {
 		return this.reponses;
 	}

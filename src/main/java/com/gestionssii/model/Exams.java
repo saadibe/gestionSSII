@@ -95,7 +95,7 @@ public class Exams implements java.io.Serializable {
 		this.active = active;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "exams",cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "exams",cascade = CascadeType.ALL)
 	public Set<Question> getQuestions() {
 		return this.questions;
 	}

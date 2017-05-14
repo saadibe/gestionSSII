@@ -16,6 +16,7 @@ import com.gestionssii.DTO.ExamsDTO;
 import com.gestionssii.DTO.QuestionDTO;
 import com.gestionssii.DTO.ReponseDTO;
 import com.gestionssii.dao.ExamsDao;
+import com.gestionssii.model.Categorie;
 import com.gestionssii.model.Exams;
 import com.gestionssii.model.Question;
 import com.gestionssii.model.Reponse;
@@ -89,10 +90,14 @@ public class ExamsServiceImpl implements ExamsService {
 		exam.setExpertise(examsDTO.getExpertise());
 		exam.setLevel(examsDTO.getLevel());
 		exam.setName(examsDTO.getName());
-		Set set = new HashSet(examsDTO.getQuestions());
-		exam.setQuestions(set);
 		exam.setTime(examsDTO.getTime());
-		examDao.addExam(exam);
+		exam = examDao.addExam(exam);
+		for(QuestionDTO questionDto : examsDTO.getQuestions()){
+			Question question = new Question();			
+			question.setDescription(questionDto.getDescription());
+			question = examDao.addQuestion(question, exam.getIdExams(),1);
+		}
+		System.out.println(exam.getIdExams());
 		return true;
 	}
 

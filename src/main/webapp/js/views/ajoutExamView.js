@@ -50,16 +50,26 @@ define(
 				action : 'ajout'
 			    })
 			    var questionArray = new Array();
+			    var data ={}
+			    data.questions = [];
 			    $('.task').each(function() {
-				questionArray.push($(this).val());
+			    	var question = {} ;
+			    	question.description =$(this).val();
+			    	question.reponses = [];
+			    	var reponse ={}
+				    reponse.description = "reponse 1";
+				    reponse.isGoodreponse=1;
+				    question.reponses.push(reponse);
+			    	data.questions.push(question);
 			    });
+			    
 			    exam.set({
 				"name" : $("input[name=name]").val(),
 				"expertise" : $("input[name=expertise]").val(),
 				"level" : $("input[name=level]").val(),
 				"time" : $("input[name=time]").val(),
 				"active" : $("input[name=active]").val(),
-				"question" :questionArray
+				"question" :JSON.stringify(data)
 			    })
 			    exam.save(exam.toJSON(), {
 				success : function(model) {
