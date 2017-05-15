@@ -96,6 +96,12 @@ public class ExamsServiceImpl implements ExamsService {
 			Question question = new Question();			
 			question.setDescription(questionDto.getDescription());
 			question = examDao.addQuestion(question, exam.getIdExams(),1);
+			for(ReponseDTO reponsedto : questionDto.getReponses() ){
+				Reponse reponse = new Reponse();	
+				reponse.setDescription(reponsedto.getDescription());
+				reponse.setIsGoodreponse(1);
+				reponse = examDao.addReponse(reponse, question.getIdQuestion());
+			}
 		}
 		System.out.println(exam.getIdExams());
 		return true;

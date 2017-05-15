@@ -25,25 +25,25 @@ define(
 			    }
 			},
 			ajouterQuestion : function() {
+				countQuestions = this.lengthDiv('.task');
 			    $(".questions")
 				    .append(
-					    "<div class=\"panel-group\" id=\"accordion\"> <div class=\"panel panel-default\">"
+					    "<div class=\"panel-group question"+countQuestions+"\" id=\"accordion\"> <div class=\"panel panel-default\">"
 						    + "<div class=\"panel-heading\"><h4 class=\"panel-title\">"
 						    + "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse"
-						    + count
+						    + countQuestions
 						    + "\">Question "
-						    + count
+						    + countQuestions
 						    + " : </a></h4></div>"
 						    + "<div id=\"collapse"
-						    + count
+						    + countQuestions
 						    + "\""
 						    + +" class=\"panel-collapse collapse in\"> <div class=\"panel-body\"> "
 						    + " <p> description : </p> <input type=\"text\" class=\"task\" name=\"task[]\" />"
 						    + "<div class=\"link\"><button type=\"button\" class=\"btn btn-link js-ajouterReponse\" data-question=\""
-						    + count
+						    + countQuestions
 						    + "\">Ajouter une reponse</button></div></div>"
 						    + "</div></div></div>");
-			    count++;
 			},
 			ajouterExam : function() {
 			    var exam = new Exam({
@@ -52,14 +52,22 @@ define(
 			    var questionArray = new Array();
 			    var data ={}
 			    data.questions = [];
+			    var count =1
 			    $('.task').each(function() {
 			    	var question = {} ;
 			    	question.description =$(this).val();
 			    	question.reponses = [];
+			    	
 			    	var reponse ={}
-				    reponse.description = "reponse 1";
-				    reponse.isGoodreponse=1;
-				    question.reponses.push(reponse);
+			    	var countReponse = 1;
+			    	$('.reponseDescription'+count).each(function() {
+			    		 var reponse ={}
+			    		 reponse.description = $(this).val();
+			    		 reponse.isGoodreponse=$("select[name=reponse"+countReponse+"]").val(),
+			    		 question.reponses.push(reponse)
+			    		 countReponse++;
+			    	 }),
+			    	 count++;
 			    	data.questions.push(question);
 			    });
 			    
@@ -83,14 +91,19 @@ define(
 				}
 			    });
 			},
+			
+			lengthDiv :function(div){
+				return $(div).length + 1;
+			},
+			
 			ajouterReponse : function(event) {
 			    var questionData = $(event.currentTarget).data();
 			    $("#collapse" + questionData.question)
 				    .append(
-					    " <input class=\"zonetextarea\" type=\"textarea\" rows=\"4\" cols=\"50\" name=\"reponse\" />"
-						    + "<select id=\"select\">"
-						    + "<option value=\"vrai\" selected >vrai</option>"
-						    + "<option value=\"faux\" >faux</option>"
+					    " <input class=\"zonetextarea reponseDescription"+questionData.question+ "\" type=\"textarea\" rows=\"4\" cols=\"50\" name=\"reponse\" />"
+						    + "<select id=\"select\" name=\"reponse"+questionData.question+"\">"
+						    + "<option value=\"1\" selected >vrai</option>"
+						    + "<option value=\"0\" >faux</option>"
 						    + "</select>")
 			},
 			annuller : function() {

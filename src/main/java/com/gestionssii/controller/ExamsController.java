@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.gestionssii.DTO.CandidatDTO;
 import com.gestionssii.DTO.ExamsDTO;
 import com.gestionssii.DTO.QuestionDTO;
+import com.gestionssii.DTO.ReponseDTO;
 import com.gestionssii.service.ExamsService;
 
 
@@ -60,6 +61,14 @@ public class ExamsController<E> {
 			    JSONObject question = questionsArray.getJSONObject(i);
 			    String description = question.getString("description");	
 			    questionDto.setDescription(description);
+			    List<ReponseDTO> reponses = new ArrayList<ReponseDTO>();
+			    for (int j=0; j<((JSONArray) question.get("reponses")).length(); j++) {
+			    	ReponseDTO reponseDto = new ReponseDTO();
+			    	JSONObject reponse = ((JSONArray) question.get("reponses")).getJSONObject(j);
+			    	reponseDto.setDescription(reponse.getString("description"));
+			    	reponses.add(reponseDto);
+			    	questionDto.setReponses(reponses);
+			    }
 			    questions.add(questionDto);
 			}
 			examsDTO.setQuestions(questions);

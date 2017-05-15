@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.gestionssii.model.Categorie;
 import com.gestionssii.model.Exams;
 import com.gestionssii.model.Question;
+import com.gestionssii.model.Reponse;
 
 @Repository
 public class ExamsDaoImpl implements ExamsDao {
@@ -45,5 +46,13 @@ public class ExamsDaoImpl implements ExamsDao {
 		question.setExams(exam);
 		sessionFactory.getCurrentSession().saveOrUpdate(question);
 		return question;
+	}
+
+	@Override
+	public Reponse addReponse(Reponse reponse, int idQuestion) {
+		Question question =  (Question) sessionFactory.getCurrentSession().get(Question.class, idQuestion);
+		reponse.setQuestion(question);
+		sessionFactory.getCurrentSession().saveOrUpdate(reponse);
+		return reponse;
 	}
 }

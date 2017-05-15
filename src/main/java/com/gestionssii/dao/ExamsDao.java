@@ -3,6 +3,7 @@ package com.gestionssii.dao;
 import java.util.List;
 import com.gestionssii.model.Exams;
 import com.gestionssii.model.Question;
+import com.gestionssii.model.Reponse;
 
 public interface ExamsDao {
 
@@ -15,5 +16,7 @@ public interface ExamsDao {
 	Question addQuestion(Question question, int idExam, int idCategorie) throws Exception;
 
 	void deleteExam(Exams exam);
+
+	Reponse addReponse(Reponse reponse, int idQuestion);
 
 }
