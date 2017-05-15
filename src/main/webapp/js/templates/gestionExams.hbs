@@ -26,7 +26,7 @@
   </div></div></div>
 
 <div class="gestion-container">
-<div class="ajouter-exam js-ajouter-exam"></div>
+<div class="ajouter-exam js-ajouter-exam"><i class="fa fa-file-text" aria-hidden="true"></i><i class="add fa fa-plus" aria-hidden="true"></i></div>
 <div class="panel panel-primary"><div class="panel-heading">Examens</div>
 <div class="panel-body">
 <table class="table table-hover">
@@ -51,9 +51,9 @@
          <td class="">{{time}}</td>
          <td class="">{{active}}</td>
          <td class="">
-            <div class="afficher js-afficher-Exam" data-idExams="{{idExams}}"></div>
-            <div class="update js-modifier-Exam" data-idExams="{{idExams}}"></div>
-            <div class="supprimer js-supprimer-Exam" data-idExams="{{idExams}}" ></div>
+            <div class="afficher js-afficher-Exam" data-idExams="{{idExams}}"><span class="fa fa-eye" aria-hidden="true"></div>
+            <div class="update js-modifier-Exam" data-idExams="{{idExams}}"><span class="fa fa-pencil" aria-hidden="true"></div>
+            <div class="supprimer js-supprimer-Exam" data-idExams="{{idExams}}" ><span class="fa fa-trash" aria-hidden="true"></div>
          </td>
       </tr>
       {{/each}}

@@ -68,6 +68,7 @@ public class CandidatServiceImpl implements CandidatService {
 		List<Exams> exams = examsDao.getAllExams();
 		for(Exams exam : exams){
 			ExamsDTO examDto = new ExamsDTO();
+			exam.setQuestions(null);
 			BeanUtils.copyProperties(examDto,exam);
 			examsDTO.add(examDto);
 		}
