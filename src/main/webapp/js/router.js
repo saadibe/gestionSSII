@@ -2,14 +2,17 @@ define(
 	[ "lib/backbone", "views/authentificationView", "views/homeView",
 		'models/user', "views/gestionCandidatsView",
 		"views/ajoutCandidatView", "views/afficherCandidatView",
-		"views/modifierCandidatView","views/inviterCandidatView","views/gestionExamsView","views/afficherExamView","views/ajoutExamView","views/gestionUsersView","views/ajoutUserView" ],
+		"views/modifierCandidatView", "views/inviterCandidatView",
+		"views/gestionExamsView", "views/afficherExamView",
+		"views/ajoutExamView", "views/gestionUsersView",
+		"views/ajoutUserView", 'views/passage_exam/homeViewExam','views/passage_exam/passageExamView' ],
 	function(Backbone, AuthentificationView, HomeView, User,
 		GestionCandidats, AjoutCandidat, AfficherCandidat,
-		ModifierCandidat,InviterCandidat,GestionExams,AfficherExam,AjoutExam,GestionUsers,AjouterUser) {
-	    var gestionCandidats = new GestionCandidats(), homeView = new HomeView(), authentificationView = new AuthentificationView(), ajoutCandidat = new AjoutCandidat(), afficherCandidat = new AfficherCandidat(),
-	    modifierCandidat = new ModifierCandidat(),inviterCandidat = new InviterCandidat(),gestionExams= new GestionExams(),afficherExam = new AfficherExam(),ajoutExam = new AjoutExam(),gestionUsers = new GestionUsers(),
-	    ajouterUser = new AjouterUser(); 
-	    
+		ModifierCandidat, InviterCandidat, GestionExams, AfficherExam,
+		AjoutExam, GestionUsers, AjouterUser, HomeViewExam,PassageExamView) {
+	    var gestionCandidats = new GestionCandidats(), homeView = new HomeView(), authentificationView = new AuthentificationView(), ajoutCandidat = new AjoutCandidat(), afficherCandidat = new AfficherCandidat(), modifierCandidat = new ModifierCandidat(), inviterCandidat = new InviterCandidat(), gestionExams = new GestionExams(), afficherExam = new AfficherExam(), ajoutExam = new AjoutExam(), gestionUsers = new GestionUsers(), ajouterUser = new AjouterUser(),
+	     homeExam = new HomeViewExam(),passageExam = new PassageExamView();
+
 	    var Router = Backbone.Router.extend({
 		routes : {
 		    '' : 'index',
@@ -19,11 +22,13 @@ define(
 		    'afficherCandidat/:candidatId' : 'afficherCandidat',
 		    'modifierCandidat/:candidatId' : 'modifierCandidat',
 		    'inviterCandidat/:candidatId' : 'inviterCandidat',
-		    'gestionExams':'gestionExams',
-		    'afficherExam/:examId':'afficherExam',
-		     'ajoutExam':'ajoutExam',
-		     'gestionUsers':'gestionUsers',
-		     'ajoutUser':'ajoutUser'
+		    'gestionExams' : 'gestionExams',
+		    'afficherExam/:examId' : 'afficherExam',
+		    'ajoutExam' : 'ajoutExam',
+		    'gestionUsers' : 'gestionUsers',
+		    'ajoutUser' : 'ajoutUser',
+		    'homeExam/:candidatId/:examId' : 'homeExam',
+		     'passageExam':'passageExam'	
 		},
 
 		activeView : null,
@@ -68,21 +73,29 @@ define(
 		    this.closeActiveView();
 		    this.activeView = gestionExams.showMe(candidatId);
 		},
-		afficherExam:function(examId){
-			this.closeActiveView();
-			this.activeView = afficherExam.showMe(examId);
+		afficherExam : function(examId) {
+		    this.closeActiveView();
+		    this.activeView = afficherExam.showMe(examId);
 		},
-		ajoutExam:function(){
-			this.closeActiveView();
-			this.activeView = ajoutExam.showMe();
+		ajoutExam : function() {
+		    this.closeActiveView();
+		    this.activeView = ajoutExam.showMe();
 		},
-		gestionUsers:function(){
-			this.closeActiveView();
-			this.activeView = gestionUsers.showMe();
+		gestionUsers : function() {
+		    this.closeActiveView();
+		    this.activeView = gestionUsers.showMe();
 		},
-		ajoutUser:function(){
-			this.closeActiveView();
-			this.activeView = ajouterUser.showMe();
+		ajoutUser : function() {
+		    this.closeActiveView();
+		    this.activeView = ajouterUser.showMe();
+		},
+		homeExam : function() {
+		    this.closeActiveView();
+		    this.activeView = homeExam.showMe();
+		},
+		passageExam: function() {
+		    this.closeActiveView();
+		    this.activeView = passageExam.showMe();
 		},
 	    });
 	    return Router;

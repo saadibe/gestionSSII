@@ -276,3 +276,13 @@ legend.scheduler-border {
 	width: 80%;
 	margin: 10px;
 }
+.sperateur>.form-group{
+	margin-left: 30px;
+}
+.container_exam{
+	display: table;
+  margin: 0 auto;
+}
+.panel-group-exam{
+	text-align: left;
+} 
