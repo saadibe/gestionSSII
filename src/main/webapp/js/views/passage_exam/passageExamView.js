@@ -1,5 +1,5 @@
 define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/passageExam.hbs',
-	'models/exam',  ], function(Handlebars, Backbone,
+	'models/exam','lib/jquery.steps'], function(Handlebars, Backbone,
 	template_passageExam, Exam) {
     var singleton;
     var passageExamView = Backbone.View.extend({
@@ -27,6 +27,16 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/passageExam.hbs',
 	    this.$el.html(template({exam : this.model.toJSON()}));
 	    $("#contenu").append(this.$el);
 	    this.delegateEvents();
+	    $("#wizard").steps({
+		labels: {
+		        finish: "terminer",
+		        next: "suivant",
+		        previous: "précédent",
+		        loading: "chargement ..."},
+                headerTag: "h2",
+                bodyTag: "section",
+                transitionEffect: "slideLeft"
+            });
 	    return this;
 	},
 	showMe : function(userId) {

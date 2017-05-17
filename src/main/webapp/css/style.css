@@ -286,3 +286,6 @@ legend.scheduler-border {
 .panel-group-exam{
 	text-align: left;
 } 
+.wizard ul, .tabcontrol ul {
+    display: none;
+}

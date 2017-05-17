@@ -30,13 +30,18 @@ require.config({
 	'lib/multifilter':{
 		deps : [ "jquery"],
 		exports : 'Multifilter'
+	},
+	'lib/jquery.steps':{
+	    
+	    deps : [ "jquery"],
+   
 	}
 	
     }
 });
 
 require([ "lib/bootstrap", "jquery", "lib/handlebars", "lib/underscore",
-	"lib/backbone", "lib/text", "main","lib/bootbox","lib/jquery.flot","lib/jquery.flot.categories","lib/multifilter" ]);
+	"lib/backbone", "lib/text", "main","lib/bootbox","lib/jquery.flot","lib/jquery.flot.categories","lib/multifilter",'lib/jquery.steps' ]);
 
 var host = {
     url : "http://localhost:8080/gestionssii/"

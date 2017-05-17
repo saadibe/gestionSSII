@@ -28,24 +28,20 @@
       </label>
      </div>
     </div>
-  <div class="panel-group" id="accordion">
-   {{#each exam.questions}}
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{inc @index}}">Question {{inc @index}} : {{description}}</a>
-        </h4>
-      </div>
-      <div id="collapse{{inc @index}}" class="panel-collapse collapse in">
-        <div class="panel-body"> 
-        {{#each reponses}}
-        <p>{{description}} <input type="checkbox" >  </p>
-        {{/each}} 
-        </div>
-      </div>
-    </div>
-	{{/each}}
-  </div> 
+	<div class="panel-group" id="accordion">
+	 <div id="wizard">
+	 {{#each exam.questions}}
+        <h2>Question {{inc @index}} : {{description}}</h2>
+            <section>
+            <h2>Question {{inc @index}} : {{description}}</h2>
+			{{#each reponses}}
+                    <p>{{description}} <input type="checkbox" > </p>
+						
+			{{/each}}
+        </section>
+		{{/each}}
+            </div>
+	 </div>
 </div>
 </div>
 </div>

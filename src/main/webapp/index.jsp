@@ -5,6 +5,9 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<link rel="stylesheet"  type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.steps.css">
 </head>
 <body>
 
