@@ -20,28 +20,43 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    }
 	},
 	ajouterCandidat : function() {
+	    this.hideErrors();
 	    var candidat = new Candidat({action:"ajout"})
-	    candidat.set({
-		"firstName" : $("input[name=firstName]").val(),
-		"lastName" : $("input[name=lastName]").val(),
-		"sexe" : $("select[name=sexe]").val(),
-		"birthDate" : $("input[name=birthDate]").val(),
-		"adresse" : $("input[name=adresse]").val(),
-		"email" : $("input[name=email]").val(),
-		"expertise" : $("input[name=expertise]").val(),
-		"experience" : $("input[name=experience]").val(),
-		"cv" : $("input[name=cv]").val(),
-		"availability" : $("input[name=availability]").val(),
-		"active" : "1"
-	    })
-	    candidat.save(candidat.toJSON(),{
+	    var jsonCandidat = {
+			firstName : $("input[name=firstName]").val(),
+			lastName : $("input[name=lastName]").val(),
+			sexe : $("select[name=sexe]").val(),
+			birthDate : $("input[name=birthDate]").val(),
+			adresse : $("input[name=adresse]").val(),
+			email : $("input[name=email]").val(),
+			expertise : $("input[name=expertise]").val(),
+			experience : $("input[name=experience]").val(),
+			cv : $("input[name=cv]").val(),
+			availability : $("input[name=availability]").val(),
+			active : "1"
+		    }
+	    
+	    var self= this;
+	    candidat.save(jsonCandidat,{
 		success: function(model) {
 		    Application.router.navigate('gestionCandidats', {trigger : true});
                 },
-                error: function(model, response) {
-                    console.log("response"+response)
+                error: function(model, errors) {
+                    console.log("response"+errors)
+                    self.showErrors(errors);
                 }
             });
+	},
+	showErrors : function(errors) {
+	    _.each(errors, function(error) {
+		var controlGroup = $('.' + error.name);
+		controlGroup.find('.error-inline').addClass('error');
+		controlGroup.find('.error-inline').text(error.message);
+	    }, this);
+	},
+	hideErrors : function() {
+	    $('.error-inline').removeClass('error');
+	    $('.error-inline').text('');
 	},
 	annuller : function(){
 	    Application.router.navigate('gestionCandidats', {trigger : true}); 

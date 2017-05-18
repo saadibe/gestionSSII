@@ -5,13 +5,13 @@ define(
 		"views/modifierCandidatView", "views/inviterCandidatView",
 		"views/gestionExamsView", "views/afficherExamView",
 		"views/ajoutExamView", "views/gestionUsersView",
-		"views/ajoutUserView", 'views/passage_exam/homeViewExam','views/passage_exam/passageExamView' ],
+		"views/ajoutUserView", 'views/passage_exam/homeViewExam','views/passage_exam/passageExamView','views/notificationView',"views/endExamView" ],
 	function(Backbone, AuthentificationView, HomeView, User,
 		GestionCandidats, AjoutCandidat, AfficherCandidat,
 		ModifierCandidat, InviterCandidat, GestionExams, AfficherExam,
-		AjoutExam, GestionUsers, AjouterUser, HomeViewExam,PassageExamView) {
+		AjoutExam, GestionUsers, AjouterUser, HomeViewExam,PassageExamView,NotificationView,EndExamView) {
 	    var gestionCandidats = new GestionCandidats(), homeView = new HomeView(), authentificationView = new AuthentificationView(), ajoutCandidat = new AjoutCandidat(), afficherCandidat = new AfficherCandidat(), modifierCandidat = new ModifierCandidat(), inviterCandidat = new InviterCandidat(), gestionExams = new GestionExams(), afficherExam = new AfficherExam(), ajoutExam = new AjoutExam(), gestionUsers = new GestionUsers(), ajouterUser = new AjouterUser(),
-	     homeExam = new HomeViewExam(),passageExam = new PassageExamView();
+	     homeExam = new HomeViewExam(),passageExam = new PassageExamView(),notification= new NotificationView(),endExam = new EndExamView();
 
 	    var Router = Backbone.Router.extend({
 		routes : {
@@ -28,7 +28,9 @@ define(
 		    'gestionUsers' : 'gestionUsers',
 		    'ajoutUser' : 'ajoutUser',
 		    'homeExam/:candidatId/:examId' : 'homeExam',
-		     'passageExam':'passageExam'	
+		    'passageExam':'passageExam',
+		    'notification':'notification',
+		    'endExam' :'endExam'
 		},
 
 		activeView : null,
@@ -96,6 +98,14 @@ define(
 		passageExam: function() {
 		    this.closeActiveView();
 		    this.activeView = passageExam.showMe();
+		},
+		notification: function() {
+		    this.closeActiveView();
+		    this.activeView = notification.showMe();
+		},
+		endExam: function() {
+		    this.closeActiveView();
+		    this.activeView = endExam.showMe();
 		},
 	    });
 	    return Router;

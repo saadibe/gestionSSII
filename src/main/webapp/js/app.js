@@ -15,33 +15,38 @@ require.config({
 	    exports : 'Bootstrap'
 	},
 	'lib/bootbox' : {
-	    deps : [ "jquery","lib/bootstrap" ],
+	    deps : [ "jquery", "lib/bootstrap" ],
 	    exports : 'Bootbox'
 	},
-	'lib/jquery.flot':{
-		deps : [ "jquery"],
-		exports : 'JqueryFlot'
-	}
-	,
-	'lib/jquery.flot.categories':{
-		deps : [ "jquery","lib/jquery.flot"],
-		exports : 'JqueryFlotCategories'
+	'lib/jquery.flot' : {
+	    deps : [ "jquery" ],
+	    exports : 'JqueryFlot'
 	},
-	'lib/multifilter':{
-		deps : [ "jquery"],
-		exports : 'Multifilter'
+	'lib/jquery.flot.categories' : {
+	    deps : [ "jquery", "lib/jquery.flot" ],
+	    exports : 'JqueryFlotCategories'
 	},
-	'lib/jquery.steps':{
-	    
-	    deps : [ "jquery"],
-   
+	'lib/multifilter' : {
+	    deps : [ "jquery" ],
+	    exports : 'Multifilter'
+	},
+	'lib/jquery.steps' : {
+
+	    deps : [ "jquery" ],
+
+	},
+	'lib/countdown' : {
+	    deps : [ "jquery" ],
+
 	}
-	
+
     }
 });
 
 require([ "lib/bootstrap", "jquery", "lib/handlebars", "lib/underscore",
-	"lib/backbone", "lib/text", "main","lib/bootbox","lib/jquery.flot","lib/jquery.flot.categories","lib/multifilter",'lib/jquery.steps' ]);
+	"lib/backbone", "lib/text", "main", "lib/bootbox", "lib/jquery.flot",
+	"lib/jquery.flot.categories", "lib/multifilter", 'lib/jquery.steps',
+	'lib/countdown' ]);
 
 var host = {
     url : "http://localhost:8080/gestionssii/"

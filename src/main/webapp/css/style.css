@@ -28,7 +28,7 @@ body {
 }
 
 .ajoutCandidat, .modifierCandidat, .gestionExams, .inviterCandidat,
-	.afficherExam, .ajoutExam, .gestionUsers, .ajoutUser {
+	.afficherExam, .ajoutExam, .gestionUsers, .ajoutUser, .passageExam, .notification {
 	margin-left: 30px;
 	margin-top: 30px;
 	margin-right: 30px;
@@ -288,4 +288,7 @@ legend.scheduler-border {
 } 
 .wizard ul, .tabcontrol ul {
     display: none;
+}
+.error{
+	color: red;
 }

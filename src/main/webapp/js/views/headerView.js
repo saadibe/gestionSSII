@@ -7,7 +7,8 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	events : {
 	    "click .js-gestionCandidats" : "gestionCandidats",
 	    "click .js-gestionExams" : "gestionExams",
-	    "click .js-gestionUsers" : "gestionUsers"
+	    "click .js-gestionUsers" : "gestionUsers",
+	    "click .js-notification":"notification"
 	},
 
 	render : function() {
@@ -30,6 +31,11 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	},
 	gestionUsers: function() {
 	    Application.router.navigate('gestionUsers', {
+		trigger : true
+	    });
+	},
+	notification: function() {
+	    Application.router.navigate('notification', {
 		trigger : true
 	    });
 	},

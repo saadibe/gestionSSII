@@ -27,8 +27,29 @@ define([ "lib/backbone" ], function(Backbone) {
 	},
 	defaults : {
 	    candidatId : null,
-	    action : null
-	}
+	    action : null,
+	    firstName:'',
+	    lastName:''
+	},
+	  validate: function (attributes) {
+	      var errors=[]
+	      if (!attributes.firstName || attributes.firstName === '') {
+		  var detailErros={};
+		  detailErros.name="firstName"
+		  detailErros.message="nom obligatoire"
+		  errors.push(detailErros)
+	      }
+	      if (!attributes.lastName || attributes.lastName === '') {
+		  var detailErros={};
+		  detailErros.name="lastName"
+		  detailErros.message="prenom obligatoire"
+		  errors.push(detailErros)
+	      }
+	      if(errors.length == 0){
+		  return false;
+	      }
+	      return errors
+	    }
     });
     return Candidat;
 });

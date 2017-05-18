@@ -1,13 +1,14 @@
-define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/passageExam.hbs',
-	'models/exam','lib/jquery.steps'], function(Handlebars, Backbone,
+define([ 'lib/handlebars', 'lib/backbone',
+	'lib/text!templates/passageExam.hbs', 'models/exam',
+	'lib/jquery.steps', 'lib/countdown' ], function(Handlebars, Backbone,
 	template_passageExam, Exam) {
     var singleton;
     var passageExamView = Backbone.View.extend({
 	tagName : "div",
-	className:"passageExam",
+	className : "passageExam",
 
 	events : {
-
+	    "click .finished":"countdownComplete"
 	},
 	close : function() {
 	    this.$el.remove();
@@ -19,37 +20,59 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/passageExam.hbs',
 	    }
 	},
 	render : function() {
+	    var self= this;
 	    var template = Handlebars.compile(template_passageExam);
-	    Handlebars.registerHelper("inc", function(value, options)
-			{
-			    return parseInt(value) + 1;
-			});
-	    this.$el.html(template({exam : this.model.toJSON()}));
+	    Handlebars.registerHelper("inc", function(value, options) {
+		return parseInt(value) + 1;
+	    });
+	    this.$el.html(template({
+		exam : this.model.toJSON()
+	    }));
 	    $("#contenu").append(this.$el);
 	    this.delegateEvents();
 	    $("#wizard").steps({
-		labels: {
-		        finish: "terminer",
-		        next: "suivant",
-		        previous: "précédent",
-		        loading: "chargement ..."},
-                headerTag: "h2",
-                bodyTag: "section",
-                transitionEffect: "slideLeft"
-            });
+		labels : {
+		    finish : "terminer",
+		    next : "suivant",
+		    previous : "précédent",
+		    loading : "chargement ..."
+		},
+		headerTag : "h2",
+		bodyTag : "section",
+		transitionEffect : "slideLeft",
+		onFinished : function(event, currentIndex) {
+		    var form = $(this);
+		    $( ".finished" ).click();
+		   
+		}
+	    });
+	    var myCountdown1 = new Countdown({
+		time : 30 * 60, // seconds
+		width : 150,
+		height : 80,
+		rangeHi : "minute",
+		target : 'target_location',
+		onComplete : this.countdownComplete,
+		hideLine : true,
+	    });
 	    return this;
+	},
+	countdownComplete : function() {
+	    Application.router.navigate('endExam', {
+		trigger : true
+	    });
 	},
 	showMe : function(userId) {
 
 	    if (!singleton) {
 		singleton = new passageExamView();
 	    }
-	   
+
 	    var exam = new Exam({
-		action:"affichage",
+		action : "affichage",
 		examId : 10
 	    });
-	   
+
 	    exam.fetch({
 		success : (function(model) {
 		    singleton.model = model

@@ -32,6 +32,7 @@ public class Candidat implements java.io.Serializable {
 	private Date createDate;
 	private Date updateDate;
 	private int active;
+	private int note;
 
 	public Candidat() {
 	}
@@ -165,6 +166,14 @@ public class Candidat implements java.io.Serializable {
 
 	public void setActive(int active) {
 		this.active = active;
+	}
+	@Column(name = "note")
+	public int getNote() {
+		return note;
+	}
+
+	public void setNote(int note) {
+		this.note = note;
 	}
 
 }
