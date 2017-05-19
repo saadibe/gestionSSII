@@ -1,7 +1,7 @@
 define([ 'lib/handlebars', 'lib/backbone',
 	'lib/text!templates/inviterCandidat.hbs', 'views/headerView',
-	"models/candidat", "models/invitationExam" ], function(Handlebars,
-	Backbone, template_inviterCandidat, HeaderView, Candidat,
+	"models/candidatValidate", "models/invitationExam" ], function(Handlebars,
+	Backbone, template_inviterCandidat, HeaderView, candidatValidate,
 	InvitationExam) {
     var singleton;
     var InviterCandidatView = Backbone.View.extend({
@@ -52,7 +52,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    if (!singleton) {
 		singleton = new InviterCandidatView();
 	    }
-	    candidat = new Candidat({
+	    candidat = new candidatValidate({
 		candidatId : candidatId,
 		action : "invitation"
 	    });
