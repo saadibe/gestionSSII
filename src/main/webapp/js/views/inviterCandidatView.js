@@ -1,6 +1,6 @@
 define([ 'lib/handlebars', 'lib/backbone',
 	'lib/text!templates/inviterCandidat.hbs', 'views/headerView',
-	"models/candidatValidate", "models/invitationExam" ], function(Handlebars,
+	"models/candiadtValidate", "models/invitationExam" ], function(Handlebars,
 	Backbone, template_inviterCandidat, HeaderView, candidatValidate,
 	InvitationExam) {
     var singleton;

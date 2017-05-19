@@ -45,6 +45,7 @@ define([ "lib/backbone" ], function(Backbone) {
 		  detailErros.message="prenom obligatoire"
 		  errors.push(detailErros)
 	      }
+	     
 	      if(errors.length == 0){
 		  return false;
 	      }

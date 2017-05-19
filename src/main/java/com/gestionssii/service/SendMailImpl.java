@@ -40,7 +40,7 @@ public class SendMailImpl implements SendMail {
 			message.setFrom(new InternetAddress("linaservicesfr@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 			message.setSubject("test Examen de compitence  !!!");
-			message.setText("test Examen de compitence!");
+			message.setText("Bonjour vous étes inviter à passer un examens de compétences Merci de cliquer sur ce lien <br> http://localhost:8080/gestionssii/#homeExam/1/1");
 
 			Transport.send(message);
 

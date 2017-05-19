@@ -1,5 +1,5 @@
 define([ "lib/backbone" ], function(Backbone) {
-    var CandidatValid = Backbone.Model.extend({
+    var CandiadtValidate = Backbone.Model.extend({
 	url : function() {
 	    
 	    switch (this.action) {
@@ -31,5 +31,5 @@ define([ "lib/backbone" ], function(Backbone) {
 	},
 
     });
-    return CandidatValid;
+    return CandiadtValidate;
 });
