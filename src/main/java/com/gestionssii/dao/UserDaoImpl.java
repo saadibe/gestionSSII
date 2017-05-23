@@ -42,4 +42,11 @@ public class UserDaoImpl implements UserDao {
 	public void saveCandidat(User user) {
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}
+
+	@Override
+	public String deleteUser(int userid) {
+		User user = (User) sessionFactory.getCurrentSession().get(User.class, userid);
+		sessionFactory.getCurrentSession().delete(user);
+		return "user deleted";
+	}
 }

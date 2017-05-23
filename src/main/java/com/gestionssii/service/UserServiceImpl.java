@@ -31,6 +31,8 @@ public class UserServiceImpl implements UserService {
 		userdto.setLastName(user.getLastName());
 		userdto.setProfile(user.getProfile());
 		userdto.setUserId(user.getUserId());
+		userdto.setPassword(user.getPassword());
+		userdto.setSexe(user.getSexe());
 		return userdto;
 	}
 
@@ -63,5 +65,10 @@ public class UserServiceImpl implements UserService {
 		BeanUtils.copyProperties(user,userDto);
 		userdao.saveCandidat(user);
 		return false;
+	}
+
+	@Transactional
+	public String deleteUser(int userid) {
+		return userdao.deleteUser(userid);
 	}
 }

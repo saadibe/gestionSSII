@@ -5,13 +5,13 @@ define(
 		"views/modifierCandidatView", "views/inviterCandidatView",
 		"views/gestionExamsView", "views/afficherExamView",
 		"views/ajoutExamView", "views/gestionUsersView",
-		"views/ajoutUserView", 'views/passage_exam/homeViewExam','views/passage_exam/passageExamView','views/notificationView',"views/endExamView" ],
+		"views/ajoutUserView", 'views/passage_exam/homeViewExam','views/passage_exam/passageExamView','views/notificationView',"views/endExamView","views/afficherUserViews","views/modifierUserView"],
 	function(Backbone, AuthentificationView, HomeView, User,
 		GestionCandidats, AjoutCandidat, AfficherCandidat,
 		ModifierCandidat, InviterCandidat, GestionExams, AfficherExam,
-		AjoutExam, GestionUsers, AjouterUser, HomeViewExam,PassageExamView,NotificationView,EndExamView) {
+		AjoutExam, GestionUsers, AjouterUser, HomeViewExam,PassageExamView,NotificationView,EndExamView,AfficherUserViews,ModifierUserView) {
 	    var gestionCandidats = new GestionCandidats(), homeView = new HomeView(), authentificationView = new AuthentificationView(), ajoutCandidat = new AjoutCandidat(), afficherCandidat = new AfficherCandidat(), modifierCandidat = new ModifierCandidat(), inviterCandidat = new InviterCandidat(), gestionExams = new GestionExams(), afficherExam = new AfficherExam(), ajoutExam = new AjoutExam(), gestionUsers = new GestionUsers(), ajouterUser = new AjouterUser(),
-	     homeExam = new HomeViewExam(),passageExam = new PassageExamView(),notification= new NotificationView(),endExam = new EndExamView();
+	     homeExam = new HomeViewExam(),passageExam = new PassageExamView(),notification= new NotificationView(),endExam = new EndExamView(),afficherUser = new AfficherUserViews(),modifierUser = new ModifierUserView();
 
 	    var Router = Backbone.Router.extend({
 		routes : {
@@ -30,7 +30,9 @@ define(
 		    'homeExam/:candidatId/:examId' : 'homeExam',
 		    'passageExam':'passageExam',
 		    'notification':'notification',
-		    'endExam' :'endExam'
+		    'endExam' :'endExam',
+		    'afficherUser/:userId':'afficherUser',
+		    'modifierUser/:iduser':'modifierUser'
 		},
 
 		activeView : null,
@@ -106,6 +108,14 @@ define(
 		endExam: function() {
 		    this.closeActiveView();
 		    this.activeView = endExam.showMe();
+		},
+		afficherUser: function(userId) {
+		    this.closeActiveView();
+		    this.activeView = afficherUser.showMe(userId);
+		},
+		modifierUser: function(iduser) {
+		    this.closeActiveView();
+		    this.activeView = modifierUser.showMe(iduser);
 		},
 	    });
 	    return Router;

@@ -1,5 +1,5 @@
 
-<div class="panel panel-primary"><div class="panel-heading">Recherche</div>
+<div class="panel panel-primary"><div class="panel-heading"><i class="fa fa-search" aria-hidden="true"></i><span class="titre">Recherche</span></div>
 <div class="panel-body"><div class='filters'>
     <div class='filter-container'>
 	  <label>Nom</label>
@@ -22,7 +22,7 @@
   </div></div></div>
 
 <div class="gestion-container">
-<div class="ajouter-users js-ajouter-user"></div>
+<div class="ajouter-users js-ajouter-user"><span class="fa fa-user-plus"></div>
 <div class="panel panel-primary"><div class="panel-heading">Utilisateurs</div>
 <div class="panel-body">
 <table class="table table-hover">
@@ -38,16 +38,16 @@
    </thead>
    <tbody>
       {{#each users}}       
-      <tr class="clickable-row" data-candidat-id="{{userId}}">
+      <tr class="clickable-row" data-user-id="{{userId}}">
          <td class="check"><input type="checkbox" id="cbox1" value="checkbox1"></td>
          <td class="firstName">{{firstName}}</td>
          <td class="">{{lastName}}</td>
          <td class="">{{email}}</td>
          <td class="">{{profile}}</td>
          <td class="">
-            <div class="afficher js-afficher-candidat" data-idCandidat="{{idCandidat}}"></div>
-            <div class="update js-modifier-candidat" data-idCandidat="{{idCandidat}}"></div>            
-            <div class="supprimer js-supprimer-candidat" data-idcandidat="{{idCandidat}}" ></div>
+            <div class="afficher js-afficher-user" data-idUser="{{userId}}"><span class="fa fa-eye" aria-hidden="true"></div>
+            <div class="update js-modifier-user" data-idUser="{{userId}}"><span class="fa fa-pencil" aria-hidden="true"></div>            
+            <div class="supprimer js-supprimer-user" data-idUser="{{userId}}" ><span class="fa fa-trash" aria-hidden="true"></div>
          </td>
       </tr>
       {{/each}}

@@ -14,4 +14,6 @@ public interface UserDao {
 
 	public void saveCandidat(User user);
 
+	public String deleteUser(int userid);
+
 }

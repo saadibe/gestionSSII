@@ -30,10 +30,11 @@ public class NotificationsServicesImpl implements NotificationsServices {
 		for(Notifications notification : notifications ){
 			NotificationsDTO notificationDTO = new NotificationsDTO();
 			Candidat candidat = candidatDao.getCandidatById(notification.getIdCandidat());
-			notificationDTO.setMessage(candidat.getLastName() +" "+candidat.getFirstName() + " a passer l'examen ");
-			notificationsDTO.add(notificationDTO);
+			if(null != candidat){
+				notificationDTO.setMessage(candidat.getLastName() +" "+candidat.getFirstName() + " a passer l'examen ");
+				notificationsDTO.add(notificationDTO);
+			}
 		}
 		return notificationsDTO;
 	}
-
 }

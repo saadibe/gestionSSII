@@ -8,7 +8,11 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	tagName : "div",
 	className : "gestionUsers",
 	events : {
-	    "click .js-ajouter-user" : "ajoutUser",  
+	    "click .js-ajouter-user" : "ajoutUser",
+	    "click .js-supprimer-user" : "supprimerUser",
+	    "click .js-afficher-user" : "afficherUser",
+	    "click .js-modifier-user" : "modifierUser",
+	    
 	},
 	close : function() {
 	    this.$el.remove();
@@ -19,9 +23,47 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 		this.model.off(null, null, this);
 	    }
 	},
+	afficherUser : function(event) {
+	    var userData = $(event.currentTarget).data();
+	    userId = userData.iduser;
+	    Application.router.navigate('afficherUser/'+userId, {
+		trigger : true
+	    });
+	},
 	ajoutUser : function() {
 	    Application.router.navigate('ajoutUser', {
 		trigger : true
+	    });
+	},
+	modifierUser : function(event) {
+	    var userData = $(event.currentTarget).data();
+	    iduser = userData.iduser;
+	    Application.router.navigate('modifierUser/'+ iduser, {
+		trigger : true
+	    });
+	},
+	supprimerUser : function(event) {
+	    var self = this
+	    Bootbox.confirm("Voulez vous supprimer l'user?", function(
+		    result) {
+		if (result) {
+		    var userData = $(event.currentTarget).data();
+		    user = new User({
+			userId : userData.iduser,
+			action : "supprission"
+		    })
+		    user.save(user.toJSON(), {
+			success : function(model) {
+			    self.showMe();
+			},
+			error : function(model, response) {
+			    console.log("response" + response)
+			}
+		    });
+
+		} else {
+		    console.log("User declined dialog");
+		}
 	    });
 	},
 	render : function() {

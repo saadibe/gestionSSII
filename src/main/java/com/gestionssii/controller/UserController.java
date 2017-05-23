@@ -65,4 +65,11 @@ public class UserController {
 		}
 		return "add user" + isaddUser;
 	}
+	
+	@RequestMapping(value = "/supprimerUser/{userId}", method = RequestMethod.POST)
+	public @ResponseBody String deleteUser(HttpServletRequest request, @PathVariable String userId) {
+		int userid = Integer.parseInt(userId);
+		String message = userServices.deleteUser(userid);
+		 return message;
+	}
 }

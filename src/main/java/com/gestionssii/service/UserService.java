@@ -15,4 +15,6 @@ public interface UserService {
 
 	public boolean saveCandidat(UserDTO userDto) throws Exception;
 
+	public String deleteUser(int userid);
+
 }
