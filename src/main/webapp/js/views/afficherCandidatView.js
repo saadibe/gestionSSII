@@ -41,6 +41,11 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/jquery.flot',
 				}
 			});
 		},
+		formatDate : function(dateString) {
+		    datetab = dateString.split("/");
+		    newdate = datetab[2] + "-" + datetab[1] + "-" + datetab[0]
+		    return newdate
+		},
 		render : function() {
 			var template = Handlebars.compile(template_afficherCandidat);
 			this.$el.html(template({
@@ -61,9 +66,20 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/jquery.flot',
 
 			candidat.fetch({
 				success : (function(model) {
+					var options = {
+							year : 'numeric',
+							month : 'numeric',
+							day : 'numeric'
+						    };
 					singleton.model = model
-					singleton.model.set("birthDate" ,new Date(singleton.model.get("birthDate")).toLocaleString())
-					singleton.model.set("availability" ,new Date(singleton.model.get("availability")).toLocaleString())
+					singleton.model.set("birthDate", singleton
+							.formatDate(new Date(singleton.model
+									.get("birthDate")).toLocaleString("fr-FR",
+									options)))
+					singleton.model.set("availability", singleton
+							.formatDate(new Date(singleton.model
+									.get("availability")).toLocaleString(
+									"fr-FR", options)))
 					singleton.render();
 					singleton.createDiagrammeCompetences()
 				}),
