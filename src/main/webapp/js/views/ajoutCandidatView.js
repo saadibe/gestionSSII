@@ -39,7 +39,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    var self= this;
 	    candidat.save(jsonCandidat,{
 		success: function(model) {
-		    Application.router.navigate('gestionCandidats', {trigger : true});
+		    Application.router.navigate('gestionCandidats/true', {trigger : true});
                 },
                 error: function(model, errors) {
                     console.log("response"+errors)
@@ -59,7 +59,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    $('.error-inline').text('');
 	},
 	annuller : function(){
-	    Application.router.navigate('gestionCandidats', {trigger : true}); 
+	    Application.router.navigate('gestionCandidats/true', {trigger : true}); 
 	},
 	render : function() {
 	    var template = Handlebars.compile(template_ajoutCandidat);

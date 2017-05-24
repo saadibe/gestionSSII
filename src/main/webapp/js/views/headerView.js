@@ -20,7 +20,7 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	    return this;
 	},
 	gestionCandidats : function() {
-	    Application.router.navigate('gestionCandidats', {
+	    Application.router.navigate('gestionCandidats/true', {
 		trigger : true
 	    });
 	},

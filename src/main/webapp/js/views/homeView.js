@@ -42,7 +42,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/home.hbs',
 		    console.log(' Service request failure: ' + model);
 		    singleton.render();	
 		    if(model.get("profile") != "Administrateur"){
-		    	Application.router.navigate('gestionCandidats', {trigger : true});
+		    	Application.router.navigate('gestionCandidats/false', {trigger : true});
 			}
 		}),
 		error : (function(e) {

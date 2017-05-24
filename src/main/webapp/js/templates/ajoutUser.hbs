@@ -4,17 +4,19 @@
  <div class="container-fluid">
   <div class="row">
    <div class="col-md-6 col-sm-6 col-xs-12">
-     <div class="form-group ">
+     <div class="form-group firstName">
       <label class="control-label " for="firstName">
        nom
       </label>
       <input class="form-control" id="firstName" name="firstName" type="text" />
+      <span class="error-inline"></span>
      </div>
-     <div class="form-group ">
+     <div class="form-group lastName">
       <label class="control-label " for="lastName">
        prenom
       </label>
       <input class="form-control" id="lastName" name="lastName" type="text" />
+      <span class="error-inline"></span>
      </div>
      <div class="form-group ">
       <label class="control-label " for="sexe">
@@ -42,7 +44,7 @@
        </option>
       </select>
      </div>
-     <div class="form-group ">
+     <div class="form-group email">
       <label class="control-label requiredField" for="email">
        Email
        <span class="asteriskField">
@@ -50,14 +52,16 @@
        </span>
       </label>
       <input class="form-control" id="email" name="email" type="text"  />
+      <span class="error-inline"></span>
      </div>
      <div class="form-group">
       <div>
-      <div class="form-group ">
+      <div class="form-group password">
       <label class="control-label " for="password">
        Password
       </label>
       <input class="form-control" id="password" name="password" type="text" />
+       <span class="error-inline"></span>
      </div>
       <button class="btn btn-primary js-annuller" name="Annuller" type="submit">
         Annuller

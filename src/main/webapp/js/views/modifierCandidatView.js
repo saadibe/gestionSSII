@@ -43,7 +43,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 
 	    candidat.save(jsonCandidat, {
 		success : function(model) {
-		    Application.router.navigate('gestionCandidats', {
+		    Application.router.navigate('gestionCandidats/true', {
 			trigger : true
 		    });
 		},
@@ -54,7 +54,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    });
 	},
 	retourGestionCandidat : function() {
-	    Application.router.navigate('gestionCandidats', {
+	    Application.router.navigate('gestionCandidats/true', {
 		trigger : true
 	    });
 	},

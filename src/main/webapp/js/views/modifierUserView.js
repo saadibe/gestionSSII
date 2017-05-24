@@ -8,7 +8,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 		className : "modifierUser",
 		events : {
 			"click .js-annuller" : "annuller",
-			"click .js-ajouter" : "ajouterUser"
+			"click .js-modifier" : "modifierUser"
 		},
 		close : function() {
 			this.$el.remove();
@@ -24,25 +24,40 @@ define([ 'lib/handlebars', 'lib/backbone',
 				trigger : true
 			});
 		},
-		ajouterUser : function() {
+		modifierUser : function() {		    
+		    this.hideErrors()
 		    var user = new User({action:"ajout"})
-		    user.set({	
-		    "userId": $("input[name=userId]").val(),
-			"firstName" : $("input[name=firstName]").val(),
-			"lastName" : $("input[name=lastName]").val(),
-			"sexe" : $("select[name=sexe]").val(),
-			"profile" : $("select[name=profile]").val(),
-			"email" : $("input[name=email]").val(),
-			"password" : $("input[name=password]").val()
-		    })
-		    user.save(user.toJSON(),{
+		    var userJson = {
+			userId: $("input[name=userId]").val(),
+			firstName : $("input[name=firstName]").val(),
+			lastName : $("input[name=lastName]").val(),
+			sexe : $("select[name=sexe]").val(),
+			profile : $("select[name=profile]").val(),
+			email : $("input[name=email]").val(),
+			password : $("input[name=password]").val(),
+			silent:false
+		    }
+		    var self= this;
+		    user.save(userJson,{
 			success: function(model) {
 			    Application.router.navigate('gestionUsers', {trigger : true});
 	                },
-	                error: function(model, response) {
-	                    console.log("response"+response)
+	                error: function(model, errors) {
+	                    console.log("response"+errors)
+	                    self.showErrors(errors);
 	                }
 	            });
+		},
+		showErrors : function(errors) {
+		    _.each(errors, function(error) {
+			var controlGroup = $('.' + error.name);
+			controlGroup.find('.error-inline').addClass('error');
+			controlGroup.find('.error-inline').text(error.message);
+		    }, this);
+		},
+		hideErrors : function() {
+		    $('.error-inline').removeClass('error');
+		    $('.error-inline').text('');
 		},
 		render : function() {
 			var template = Handlebars.compile(template_modifierUser);

@@ -1,9 +1,9 @@
 define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	'lib/text!templates/gestionCandidats.hbs', 'views/headerView',
-	"collections/candidats", "models/candidat" ], function(Bootbox,
+	"collections/candidats", "models/candiadtValidate" ], function(Bootbox,
 	Handlebars, Backbone, template_gestionCandidats, HeaderView, Candidats,
 	Candidat) {
-    var singleton;
+    var singleton,isAdmin;
     var GestionCandidatsView = Backbone.View.extend({
 	tagName : "div",
 	className : "gestionCandidats",
@@ -85,10 +85,11 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	    this.delegateEvents();
 	    return this;
 	},
-	showMe : function() {
+	showMe : function(isAdministrator) {
 	    candidats = new Candidats()
 	    if (!singleton) {
 		singleton = new GestionCandidatsView();
+		isAdmin = isAdministrator
 	    }
 	    candidats.fetch({
 		success : (function(model) {
@@ -99,6 +100,7 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 			} else {
 			    candidat.set("isactive", true)
 			}
+			 candidat.set("isAdmin", JSON.parse(isAdmin))
 		    });
 		    singleton.render();
 		}),

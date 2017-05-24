@@ -53,9 +53,11 @@
          <td class=""></td>
          <td class="">
             <div class="afficher js-afficher-candidat" data-idCandidat="{{idCandidat}}"><span class="fa fa-eye" aria-hidden="true"></span></div>
+            {{#if isAdmin}} 
             <div class="update js-modifier-candidat" data-idCandidat="{{idCandidat}}"><span class="fa fa-pencil" aria-hidden="true"></span></div>
             <div class="inviter js-inviter-candidat" data-idcandidat="{{idCandidat}}" > <span class="fa fa-envelope" aria-hidden="true"></span></div>
             <div class="supprimer js-supprimer-candidat" data-idcandidat="{{idCandidat}}" ><span class="fa fa-trash" aria-hidden="true"></span></div>
+            {{/if}}
          </td>
       </tr>
       {{/if}}

@@ -20,7 +20,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/jquery.flot',
 	    }
 	},
 	retourGestionCandidat : function() {
-	    Application.router.navigate('gestionCandidats', {
+	    Application.router.navigate('gestionCandidats/true', {
 		trigger : true
 	    });
 	},

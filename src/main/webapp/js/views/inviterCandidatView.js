@@ -22,7 +22,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    }
 	},
 	retourGestionCandidat : function() {
-	    Application.router.navigate('gestionCandidats', {
+	    Application.router.navigate('gestionCandidats/true', {
 		trigger : true
 	    });
 	},
@@ -31,7 +31,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    var invitationExam = new InvitationExam({email:candidatEmail})
 	    invitationExam.save(invitationExam.toJSON() ,{
 		success: function(model) {
-		    Application.router.navigate('gestionCandidats', {trigger : true});
+		    Application.router.navigate('gestionCandidats/true', {trigger : true});
                 },
                 error: function(model, response) {
                     console.log("response"+response)

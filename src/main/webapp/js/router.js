@@ -17,7 +17,7 @@ define(
 		routes : {
 		    '' : 'index',
 		    'home/:userId' : 'home',
-		    'gestionCandidats' : 'getAllCandidats',
+		    'gestionCandidats/:isAdmin' : 'getAllCandidats',
 		    'ajoutCandidat' : 'ajoutCandidat',
 		    'afficherCandidat/:candidatId' : 'afficherCandidat',
 		    'modifierCandidat/:candidatId' : 'modifierCandidat',
@@ -53,9 +53,9 @@ define(
 		    this.closeActiveView();
 		    this.activeView = homeView.showMe(userId);
 		},
-		getAllCandidats : function() {
+		getAllCandidats : function(isAdmin) {
 		    this.closeActiveView();
-		    this.activeView = gestionCandidats.showMe();
+		    this.activeView = gestionCandidats.showMe(isAdmin);
 		},
 		ajoutCandidat : function() {
 		    this.closeActiveView();
