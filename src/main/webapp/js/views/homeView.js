@@ -40,8 +40,10 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/home.hbs',
 		success : (function(model) {
 		    singleton.model = model
 		    console.log(' Service request failure: ' + model);
-		    singleton.render();
-
+		    singleton.render();	
+		    if(model.get("profile") != "Administrateur"){
+		    	Application.router.navigate('gestionCandidats', {trigger : true});
+			}
 		}),
 		error : (function(e) {
 		    console.log(' Service request failure: ' + e);

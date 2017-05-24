@@ -4,6 +4,12 @@
  <div class="container-fluid">
   <div class="row">
    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="form-group hiden" >
+      <label class="control-label " for="userId">
+       id
+      </label>
+      <input class="form-control" id="userId" name="userId" value={{user.userId}} type="text"   />
+     </div>
      <div class="form-group ">
       <label class="control-label " for="firstName">
        nom
@@ -21,9 +27,11 @@
        sexe
       </label>
       <select class="select form-control" id="sexe" name="sexe"  >
+      {{#each user.arraysexe}}
        <option >
-       {{user.sexe}}
+       {{this}}
        </option>
+       {{/each}}
       </select>
      </div>
       <div class="form-group ">
@@ -31,9 +39,11 @@
        profile
       </label>
       <select class="select form-control" id="profile" name="profile" >
-       <option>
-       {{user.profile}}
+       {{#each user.arrayprofile}}
+       <option >
+       {{this}}
        </option>
+       {{/each}}
       </select>
      </div>
      <div class="form-group ">
