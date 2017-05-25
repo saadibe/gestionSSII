@@ -53,7 +53,7 @@ public class ExamsController<E> {
 			examsDTO.setActive(1);
 			examsDTO.setExpertise((String)request.get("expertise"));
 			examsDTO.setLevel(1);
-			examsDTO.setTime(30);
+			examsDTO.setTime(Integer.parseInt(request.get("time").toString()));
 			JSONObject jsonResponse = new JSONObject(request.get("question").toString());
 			JSONArray questionsArray = jsonResponse.getJSONArray("questions");
 			for (int i=0; i<questionsArray.length(); i++) {

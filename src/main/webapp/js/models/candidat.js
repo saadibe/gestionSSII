@@ -42,54 +42,70 @@ define([ "lib/backbone" ], function(Backbone) {
 	      if (!attributes.firstName || attributes.firstName === '') {
 		  var detailErros={};
 		  detailErros.name="firstName"
-		  detailErros.message="nom obligatoire"
+		  detailErros.message="le champ nom est vide"
 		  errors.push(detailErros)
 	      }
 	      if (!attributes.lastName || attributes.lastName === '') {
 		  var detailErros={};
 		  detailErros.name="lastName"
-		  detailErros.message="prenom obligatoire"
+		  detailErros.message="le champ prénom est vide"
 		  errors.push(detailErros)
 	      }
 	      
 	      if (!attributes.birthDate || pattern_date.test(attributes.birthDate)) {
 		  var detailErros={};
 		  detailErros.name="birthDate"
-		  detailErros.message="date de naissance non valide"
+			  if(!attributes.birthDate ){  detailErros.message="veuillez choisir une date de naissance "
+				  }else{
+					  detailErros.message=" la date de naissance est invalide"
+				  }
+		
 		  errors.push(detailErros)
 	      }
 	      
 	      if (!attributes.adresse || attributes.adresse === '') {
 		  var detailErros={};
 		  detailErros.name="adresse"
-		  detailErros.message="adresse obligatoire"
+		  detailErros.message="le champ adresse est vide"
 		  errors.push(detailErros)
 	      }
 	      
 	      if (!attributes.expertise || attributes.expertise === '') {
 		  var detailErros={};
 		  detailErros.name="expertise"
-		  detailErros.message="domaine de compétance obligatoire"
+		  detailErros.message="le champ domaine de compétence est vide "
 		  errors.push(detailErros)
 	      }
 	      
 	      if (!attributes.availability ||pattern_date.test(attributes.availability)) {
 		  var detailErros={};
 		  detailErros.name="availability"
-		  detailErros.message="date de Disponiblité non valide"
+			  if(!attributes.availability){
+				  detailErros.message="veuillez choisir une disponibilité "
+			  }else{
+				  detailErros.message=" la date de disponibilité est invalide"
+			  }
+		 
 		  errors.push(detailErros)
 	      }
 
 	      if (!attributes.email || !pattern_email.test(attributes.email)) {
 		  var detailErros={};
 		  detailErros.name="email"
-		  detailErros.message="email non valide"
+			  if(!attributes.email){detailErros.message="le champ email est vide"}else{
+				  detailErros.message="le champ email est invalide "  
+			  }
+		  
 		  errors.push(detailErros)
 	      }
 	      if (!attributes.experience || !this.isNumeric(attributes.experience)) {
 		  var detailErros={};
 		  detailErros.name="experience"
-		  detailErros.message="experience non valide"
+			  if(!attributes.experience){detailErros.message="le champ experience est vide"
+				  }else{
+					  detailErros.message="le champ experience est invalide"
+				  }
+		  
 		  errors.push(detailErros)
 	      }
 	      if(errors.length == 0){

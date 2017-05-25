@@ -20,7 +20,11 @@ public class SendEmailController {
 	public @ResponseBody String sendEmail(@RequestBody Map request) {
 		Assert.notNull(request);
 		String email = (String) request.get("email");
-		sendMail.sendEmail(email);
+		String object = (String) request.get("object");
+		String message =(String) request.get("message");
+		String idExams =(String) request.get("idExams");
+		String idCandidat=(String) request.get("idCandidat").toString();
+		sendMail.sendEmail(email,object,message,idExams,idCandidat);
 		return "E-mail sended";
 	}
 }

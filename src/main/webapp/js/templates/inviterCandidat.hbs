@@ -1,9 +1,11 @@
-<div class="panel panel-primary"><div class="panel-heading">Invitation candidat</div>
+<div class="panel panel-primary"><div class="panel-heading"><i class="fa fa-envelope-o" aria-hidden="true"></i>Invitation candidat</div>
 <div class="bootstrap-iso">
- <div class="container-fluid">
+ <div class="container">
   <div class="row">
-   <div class="col-md-6 col-sm-6 col-xs-12">
-   <div class="sperateur">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+       <div class="panel-heading"><i class="fa fa-user" aria-hidden="true"></i> Detail candidat</div>
+       <div class="panel-body">   
      <div class="form-group ">
       <label class="control-label " for="firstName">
        nom : {{candidatExams.candidat.firstName}}
@@ -45,17 +47,20 @@
        Ann&eacute; d'experience : {{candidatExams.candidat.experience}}
       </label>
      </div>
+
      </div>
-   </div>
-  </div>
- </div>
-</div>
-<div class="inviterbox">
-    <div class="form-group ">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+       <div class="panel-heading"><i class="fa fa-envelope" aria-hidden="true"></i>Invitation candidat</div>
+       <div class="panel-body"<div class="inviterbox">
+    <div class="form-group objet">
       <label class="control-label " for="objet">
        objet :
       </label>
-      <input class="form-control" id="objet" name="objet"  type="text"   />
+      <input class="form-control" id="objet" name="objet"  type="text" value="Test Examen de compitence !!!" />
+      <span class="error-inline"></span>
 	</div>
 	<div class="form-group ">
       <label class="control-label " for="exams">
@@ -63,15 +68,18 @@
       </label>
       <select class="select form-control" id="exams"  name="exams"  >
        {{#each candidatExams.exams}}
-       <option >
+       <option value= {{idExams}} >
        {{name}}
        </option>
        {{/each}}
       </select>
      </div>
-     <div class="form-group">
+     <div class="form-group messagetext">
     <label for="exampleTextarea">Message :</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    <textarea class="form-control" id="message" name="message"  rows="3" value="  Bonjour,\n vous êtes inviter a passer">
+    Bonjour, vous &egrave;tes inviter &agrave; passer un examens de comp&eacute;tences Merci de cliquer sur ce lien :
+    </textarea>
+    <span class="error-inline"></span>
   </div>
   <div class="form-group">
       <button class="btn btn-primary js-annuller" name="annuller" type="submit">
@@ -81,7 +89,10 @@
         Envoyer
        </button>
      </div>
-</div>
+</div></div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 

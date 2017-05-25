@@ -18,34 +18,39 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/homeExam.hbs',
 	    }
 	},
 	goExam : function() {
-	    Application.router.navigate('passageExam', {
+	    Application.router.navigate('passageExam/'+this.model.get("idExam"), {
 		trigger : true
 	    });
 	},
 	render : function() {
 	    var template = Handlebars.compile(template_home);
-	    this.$el.html(template);
+	    this.$el.html(template({
+			candidat : this.model.toJSON()
+		    }))
 	    $("#contenu").append(this.$el);
 	    this.delegateEvents();
 	    return this;
 	},
-	showMe : function(userId) {
+	showMe : function(examId,candidatId) {
 
 	    if (!singleton) {
 		singleton = new HomeViewExam();
 	    }
 	    var candidat = new Candidat({
 		action : "affichage",
-		userId : "40"
+		candidatId : candidatId
 	    });
-	    /*
-	     * candidat.fetch({ success : (function(model) { singleton.model =
-	     * model singleton.render();
-	     * 
-	     * }), error : (function(e) { console.log(' Service request failure: ' +
-	     * e); }), })
-	     */
-	    singleton.render();
+	    candidat.fetch({
+			success : (function(model) {
+			    singleton.model = model
+			    singleton.model.set("idExam",examId)
+			    singleton.render();
+			}),
+			error : (function(e) {
+			    console.log(' Service request failure: ' + e);
+			}),
+		    })
+
 	    return singleton;
 	}
     });

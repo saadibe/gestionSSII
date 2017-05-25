@@ -1,7 +1,7 @@
 define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/endExam.hbs' ],
 	function(Handlebars, Backbone, template_endExam) {
 	    var singleton;
-	    var endExamView = Backbone.View.extend({
+	    var EndExamView = Backbone.View.extend({
 		tagName : "div",
 		className : "endExam",
 
@@ -27,10 +27,11 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/endExam.hbs' ],
 		},
 		showMe : function() {
 		    if (!singleton) {
-			singleton = new endExamView();
+			singleton = new EndExamView();
 		    }
+		    singleton.render()
 		    return singleton;
 		}
 	    });
-	    return endExamView;
+	    return EndExamView;
 	});

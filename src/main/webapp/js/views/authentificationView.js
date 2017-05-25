@@ -58,13 +58,18 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	      if (!password || password === '') {
 		  var detailErros={};
 		  detailErros.name="password"
-		  detailErros.message="password obligatoire"
+		  detailErros.message="le champ mot de passe est vide"
 		  errors.push(detailErros)
 	      }
 	      if (!login || !pattern_email.test(login)) {
+	    	  
 		  var detailErros={};
 		  detailErros.name="email"
-		  detailErros.message="email non valide"
+			  if(!login ){ detailErros.message="le champ email est vide"
+				  }else{
+					  detailErros.message="le champ e-mail est invalide"
+				  }
+		  
 		  errors.push(detailErros)
 	      }   
 	      return errors;

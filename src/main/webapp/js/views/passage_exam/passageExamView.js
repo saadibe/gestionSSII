@@ -47,7 +47,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 		}
 	    });
 	    var myCountdown1 = new Countdown({
-		time : 30 * 60, // seconds
+		time : this.model.get("time") * 60, // seconds
 		width : 150,
 		height : 80,
 		rangeHi : "minute",
@@ -70,7 +70,7 @@ define([ 'lib/handlebars', 'lib/backbone',
 
 	    var exam = new Exam({
 		action : "affichage",
-		examId : 10
+		examId : userId
 	    });
 
 	    exam.fetch({

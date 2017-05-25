@@ -8,7 +8,8 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	    "click .js-gestionCandidats" : "gestionCandidats",
 	    "click .js-gestionExams" : "gestionExams",
 	    "click .js-gestionUsers" : "gestionUsers",
-	    "click .js-notification":"notification"
+	    "click .js-notification":"notification",
+	    "click .js-deconnexion":"deconnexion"
 	},
 
 	render : function() {
@@ -38,6 +39,9 @@ define([ 'jquery', 'lib/handlebars', 'lib/backbone',
 	    Application.router.navigate('notification', {
 		trigger : true
 	    });
+	},
+	deconnexion: function() {
+		$(location).attr('href', '')
 	},
 	showMe : function(model) {
 	    if (!singleton) {

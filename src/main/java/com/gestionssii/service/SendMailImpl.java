@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SendMailImpl implements SendMail {
 
-	public void sendEmail(String to) {
+	public void sendEmail(String to,String object,String messageExam,String idExam,String idCandidat) {
 		final String username = "linaservicesfr";
 		final String password = "bithainfo";
 
@@ -39,8 +39,8 @@ public class SendMailImpl implements SendMail {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("linaservicesfr@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-			message.setSubject("test Examen de compitence  !!!");
-			message.setText("Bonjour vous étes inviter à passer un examens de compétences Merci de cliquer sur ce lien <br> http://localhost:8080/gestionssii/#homeExam/1/1");
+			message.setSubject(object);
+			message.setText(messageExam+"http://localhost:8080/gestionssii/#homeExam/"+idExam+"/"+idCandidat);
 
 			Transport.send(message);
 

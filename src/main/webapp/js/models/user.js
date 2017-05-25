@@ -35,25 +35,28 @@ define([ "lib/backbone" ], function(Backbone) {
 	      if (!attributes.firstName || attributes.firstName === '') {
 		  var detailErros={};
 		  detailErros.name="firstName"
-		  detailErros.message="nom obligatoire"
+		  detailErros.message="le champ nom est vide "
 		  errors.push(detailErros)
 	      }
 	      if (!attributes.lastName || attributes.lastName === '') {
 		  var detailErros={};
 		  detailErros.name="lastName"
-		  detailErros.message="prenom obligatoire"
+		  detailErros.message=" le champ prénom est vide"
 		  errors.push(detailErros)
 	      }	      
 	      if (!attributes.email || !pattern_email.test(attributes.email)) {
 		  var detailErros={};
 		  detailErros.name="email"
-		  detailErros.message="email non valide"
+			  if(!attributes.email){detailErros.message="le champ email est vide "}else{
+				  etailErros.message="le champ email est invalide" 
+			  }
+		  
 		  errors.push(detailErros)
 	      }
 	      if (!attributes.password || attributes.password === '') {
 		  var detailErros={};
 		  detailErros.name="password"
-		  detailErros.message="password obligatoire"
+		  detailErros.message="le champ mot de passe est vide "
 		  errors.push(detailErros)
 	      }	  
 	      if(errors.length == 0){
