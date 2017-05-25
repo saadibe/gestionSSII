@@ -75,11 +75,9 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 		}
 	    });
 	},
-	render : function() {
+	render : function(isAdmin) {
 	    var template = Handlebars.compile(template_gestionCandidats);
-	    this.$el.html(template({
-		candidats : this.model.toJSON()
-	    }));
+	    this.$el.html(template({candidats : this.model.toJSON(),admin:isAdmin}));
 	    $("#contenu").append(this.$el);
 	    $('.filter').multifilter()
 	    this.delegateEvents();
@@ -102,7 +100,8 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 			}
 			 candidat.set("isAdmin", JSON.parse(isAdmin))
 		    });
-		    singleton.render();
+		    singleton.model.isAdmin = JSON.parse(isAdmin)
+		    singleton.render(JSON.parse(isAdmin));
 		}),
 		error : (function(e) {
 		    console.log(' Service request failure: ' + e);
