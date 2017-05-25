@@ -28,9 +28,9 @@ define(
 		    'gestionUsers' : 'gestionUsers',
 		    'ajoutUser' : 'ajoutUser',
 		    'homeExam/:examId/:candidatId' : 'homeExam',
-		    'passageExam/:idExam':'passageExam',
+		    'passageExam/:idExam/:candidatId':'passageExam',
 		    'notification':'notification',
-		    'endExam' :'endExam',
+		    'endExam/:userId/:candidatId' :'endExam',
 		    'afficherUser/:userId':'afficherUser',
 		    'modifierUser/:iduser':'modifierUser'
 		},
@@ -97,17 +97,17 @@ define(
 		    this.closeActiveView();
 		    this.activeView = homeExam.showMe(examId,candidatId);
 		},
-		passageExam: function(idExam) {
+		passageExam: function(idExam,candidatId) {
 		    this.closeActiveView();
-		    this.activeView = passageExam.showMe(idExam);
+		    this.activeView = passageExam.showMe(idExam,candidatId);
 		},
 		notification: function() {
 		    this.closeActiveView();
 		    this.activeView = notification.showMe();
 		},
-		endExam: function() {
+		endExam: function(userId,candidatId) {
 		    this.closeActiveView();
-		    this.activeView = endExam.showMe();
+		    this.activeView = endExam.showMe(userId,candidatId);
 		},
 		afficherUser: function(userId) {
 		    this.closeActiveView();

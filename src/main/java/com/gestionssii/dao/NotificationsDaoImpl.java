@@ -20,4 +20,9 @@ public class NotificationsDaoImpl implements NotificationsDao {
 		 return sessionFactory.getCurrentSession().createQuery("From Notifications").list();
 	}
 
+	@Override
+	public void saveNotification(Notifications notifications) {
+		sessionFactory.getCurrentSession().saveOrUpdate(notifications);	
+	}
+
 }

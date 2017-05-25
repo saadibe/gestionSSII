@@ -58,11 +58,11 @@ define([ 'lib/handlebars', 'lib/backbone',
 	    return this;
 	},
 	countdownComplete : function() {
-	    Application.router.navigate('endExam', {
+	    Application.router.navigate('endExam/'+'1'+'/'+this.model.get("candidatId"), {
 		trigger : true
 	    });
 	},
-	showMe : function(userId) {
+	showMe : function(examId,candidatId) {
 
 	    if (!singleton) {
 		singleton = new passageExamView();
@@ -70,12 +70,13 @@ define([ 'lib/handlebars', 'lib/backbone',
 
 	    var exam = new Exam({
 		action : "affichage",
-		examId : userId
+		examId : examId
 	    });
 
 	    exam.fetch({
 		success : (function(model) {
 		    singleton.model = model
+		    singleton.model.set("candidatId",candidatId)
 		    singleton.render();
 
 		}),

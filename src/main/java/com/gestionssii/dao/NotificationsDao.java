@@ -8,4 +8,6 @@ public interface NotificationsDao {
 	
 	public List<Notifications> getAllNotifications();
 
+	public void saveNotification(Notifications notifications);
+
 }

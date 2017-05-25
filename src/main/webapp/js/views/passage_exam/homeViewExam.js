@@ -18,7 +18,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/homeExam.hbs',
 	    }
 	},
 	goExam : function() {
-	    Application.router.navigate('passageExam/'+this.model.get("idExam"), {
+	    Application.router.navigate('passageExam/'+this.model.get("idExam")+'/'+this.model.get("candidatId"), {
 		trigger : true
 	    });
 	},
@@ -44,6 +44,7 @@ define([ 'lib/handlebars', 'lib/backbone', 'lib/text!templates/homeExam.hbs',
 			success : (function(model) {
 			    singleton.model = model
 			    singleton.model.set("idExam",examId)
+			    singleton.model.set("candidatId",candidatId)
 			    singleton.render();
 			}),
 			error : (function(e) {

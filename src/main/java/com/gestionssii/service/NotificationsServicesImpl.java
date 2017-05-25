@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import com.gestionssii.dao.CandidatDao;
 import com.gestionssii.dao.NotificationsDao;
 import com.gestionssii.model.Candidat;
 import com.gestionssii.model.Notifications;
+import com.gestionssii.model.User;
 
 @Service
 public class NotificationsServicesImpl implements NotificationsServices {
@@ -36,5 +38,14 @@ public class NotificationsServicesImpl implements NotificationsServices {
 			}
 		}
 		return notificationsDTO;
+	}
+
+	@Transactional
+	public boolean addNotification(NotificationsDTO notificationsDto) {
+		Notifications notifications = new Notifications();
+		notifications.setIdCandidat(notificationsDto.getIdCandidat());
+		notifications.setIdUser(notificationsDto.getIdUser());
+		notificationsDao.saveNotification(notifications);
+		return false;
 	}
 }
