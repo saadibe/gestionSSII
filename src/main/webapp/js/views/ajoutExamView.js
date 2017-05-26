@@ -53,6 +53,7 @@ define(
 			    var data ={}
 			    data.questions = [];
 			    var count =1
+			    var self= this
 			    $('.task').each(function() {
 			    	var question = {} ;
 			    	question.description =$(this).val();
@@ -70,28 +71,40 @@ define(
 			    	 count++;
 			    	data.questions.push(question);
 			    });
-			    
-			    exam.set({
-				"name" : $("input[name=name]").val(),
-				"expertise" : $("input[name=expertise]").val(),
-				"level" : $("input[name=level]").val(),
-				"time" : $("input[name=time]").val(),
-				"active" : $("input[name=active]").val(),
-				"question" :JSON.stringify(data)
-			    })
-			    exam.save(exam.toJSON(), {
+			    this.hideErrors();
+			    var examJson ={
+				name : $("input[name=name]").val(),
+				expertise : $("input[name=expertise]").val(),
+				level : $("input[name=level]").val(),
+				time : $("input[name=time]").val(),
+				active : $("input[name=active]").val(),
+				question :JSON.stringify(data),
+				silent:false
+			    }
+			    exam.save(examJson, {
 				success : function(model) {
 				    Application.router.navigate('gestionExams',
 					    {
 						trigger : true
 					    });
 				},
-				error : function(model, response) {
-				    console.log("response" + response)
+				error : function(model, errors) {
+				    console.log("response" + errors)
+				    self.showErrors(errors);
 				}
 			    });
 			},
-			
+			showErrors : function(errors) {
+			    _.each(errors, function(error) {
+				var controlGroup = $('.' + error.name);
+				controlGroup.find('.error-inline').addClass('error');
+				controlGroup.find('.error-inline').text(error.message);
+			    }, this);
+			},
+			hideErrors : function() {
+			    $('.error-inline').removeClass('error');
+			    $('.error-inline').text('');
+			},
 			lengthDiv :function(div){
 				return $(div).length + 1;
 			},

@@ -10,6 +10,7 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	    "click .js-afficher-Exam" : "afficherExam",
 	    "click .js-ajouter-exam" : "ajoutExam",
 	    "click .js-supprimer-Exam" : "supprimerExam",
+	    "click .js-modifier-Exam":"modifierExam"
 	},
 	close : function() {
 	    this.$el.remove();
@@ -24,6 +25,14 @@ define([ 'lib/bootbox', 'lib/handlebars', 'lib/backbone',
 	    var ExamData = $(event.currentTarget).data();
 	    examId = ExamData.idexams;
 	    Application.router.navigate('afficherExam/' + examId, {
+		trigger : true
+	    });
+
+	},
+	modifierExam : function(event) {
+	    var ExamData = $(event.currentTarget).data();
+	    examId = ExamData.idexams;
+	    Application.router.navigate('modifierExam/' + examId, {
 		trigger : true
 	    });
 

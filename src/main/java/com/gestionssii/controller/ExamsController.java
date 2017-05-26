@@ -53,13 +53,20 @@ public class ExamsController<E> {
 			examsDTO.setActive(1);
 			examsDTO.setExpertise((String)request.get("expertise"));
 			examsDTO.setLevel(1);
-			examsDTO.setTime(Integer.parseInt(request.get("time").toString()));
+			examsDTO.setTime(Integer.parseInt(request.get("time").toString().trim()));
+			if(null !=request.get("idExams")){
+			examsDTO.setIdExams(Integer.parseInt(request.get("idExams").toString()));
+			}
 			JSONObject jsonResponse = new JSONObject(request.get("question").toString());
 			JSONArray questionsArray = jsonResponse.getJSONArray("questions");
 			for (int i=0; i<questionsArray.length(); i++) {
 				QuestionDTO questionDto = new QuestionDTO();
 			    JSONObject question = questionsArray.getJSONObject(i);
 			    String description = question.getString("description");	
+			    if(question.has("idQuestion")){
+			    	String idQuestion = question.getString("idQuestion");
+			    	 questionDto.setIdQuestion(Integer.parseInt(idQuestion));
+					}
 			    questionDto.setDescription(description);
 			    List<ReponseDTO> reponses = new ArrayList<ReponseDTO>();
 			    for (int j=0; j<((JSONArray) question.get("reponses")).length(); j++) {

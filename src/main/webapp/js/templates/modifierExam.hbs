@@ -1,0 +1,71 @@
+<div class="panel panel-primary"><div class="panel-heading">Modifier Examen</div>
+<div class="container">
+<div class="sperateur">
+      <div class="form-group hiden" >
+      <label class="control-label " for="userId">
+       id
+      </label>
+      <input class="form-control" id="idExams" name="idExams" value={{exam.idExams}} type="text"   />
+     </div>
+  <div class="form-group ">
+      <label class="control-label " for="name">
+       Nom d'examen : 
+      </label>
+	  <input class="form-control" id="name" name="name" type="text" value="{{exam.name}}" />
+     </div>
+      <div class="form-group ">
+      <label class="control-label " for="expertise">
+       Domaine de competance  : 
+      </label>
+	  <input class="form-control" id="expertise" name="expertise" type="text" value="{{exam.expertise}}" />
+     </div>
+      <div class="form-group ">
+      <label class="control-label " for="level">
+       Niveau d'examen :
+      </label>
+	  <input class="form-control" id="level" name="level" type="text" value="{{exam.level}}"c/>
+     </div>
+      <div class="form-group ">
+      <label class="control-label " for="time">
+       Temp d examen :
+      </label>
+	  <input class="form-control" id="time" name="time" type="text" value=" {{exam.time}}" />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="active">
+       Active : 
+      </label>
+	  <input class="form-control" id="active" name="active" type="text" value="{{exam.active}}" />
+     </div>
+    </div>
+  
+   {{#each exam.questions}}
+   <div class="panel-group question{{inc @index}}"" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{inc @index}}">Question {{inc @index}} : <input type="text" class="task" name="task[]" value="{{description}}" /><input type="text" class="hiden questionId" name="questionId[]" value="{{idQuestion}}" /></a>
+        </h4>
+      </div>
+      <div id="collapse{{inc @index}}" class="panel-collapse collapse in">
+        <div class="panel-body"> 
+        {{#each reponses}}
+        <input class="zonetextarea reponseDescription{{inc @index}}" type="textarea" rows="4" cols="50" name="reponse" value="{{description}}" />
+						    <select id="select" name="reponse{{inc @index}}">
+						    <option value="1" selected >vrai</option>
+						    <option value="0" >faux</option>
+						    </select>
+        </div>
+        {{/each}} 
+      </div>
+    </div>
+	{{/each}}
+  </div>
+  <button class="btn btn-primary js-annuller" name="Annuller" type="submit">
+        Annuller
+       </button>
+       <button class="btn btn-primary js-ajouter" name="Ajouter" type="submit">
+        Ajouter
+       </button> 
+</div>
+</div>

@@ -5,13 +5,13 @@ define(
 		"views/modifierCandidatView", "views/inviterCandidatView",
 		"views/gestionExamsView", "views/afficherExamView",
 		"views/ajoutExamView", "views/gestionUsersView",
-		"views/ajoutUserView", 'views/passage_exam/homeViewExam','views/passage_exam/passageExamView','views/notificationView',"views/endExamView","views/afficherUserViews","views/modifierUserView"],
+		"views/ajoutUserView", 'views/passage_exam/homeViewExam','views/passage_exam/passageExamView','views/notificationView',"views/endExamView","views/afficherUserViews","views/modifierUserView","views/modifierExamView"],
 	function(Backbone, AuthentificationView, HomeView, User,
 		GestionCandidats, AjoutCandidat, AfficherCandidat,
 		ModifierCandidat, InviterCandidat, GestionExams, AfficherExam,
-		AjoutExam, GestionUsers, AjouterUser, HomeViewExam,PassageExamView,NotificationView,EndExamView,AfficherUserViews,ModifierUserView) {
+		AjoutExam, GestionUsers, AjouterUser, HomeViewExam,PassageExamView,NotificationView,EndExamView,AfficherUserViews,ModifierUserView,ModifierExam) {
 	    var gestionCandidats = new GestionCandidats(), homeView = new HomeView(), authentificationView = new AuthentificationView(), ajoutCandidat = new AjoutCandidat(), afficherCandidat = new AfficherCandidat(), modifierCandidat = new ModifierCandidat(), inviterCandidat = new InviterCandidat(), gestionExams = new GestionExams(), afficherExam = new AfficherExam(), ajoutExam = new AjoutExam(), gestionUsers = new GestionUsers(), ajouterUser = new AjouterUser(),
-	     homeExam = new HomeViewExam(),passageExam = new PassageExamView(),notification= new NotificationView(),endExam = new EndExamView(),afficherUser = new AfficherUserViews(),modifierUser = new ModifierUserView();
+	     homeExam = new HomeViewExam(),passageExam = new PassageExamView(),notification= new NotificationView(),endExam = new EndExamView(),afficherUser = new AfficherUserViews(),modifierUser = new ModifierUserView(),modifierExam = new ModifierExam();
 
 	    var Router = Backbone.Router.extend({
 		routes : {
@@ -24,6 +24,7 @@ define(
 		    'inviterCandidat/:candidatId' : 'inviterCandidat',
 		    'gestionExams' : 'gestionExams',
 		    'afficherExam/:examId' : 'afficherExam',
+		    'modifierExam/:examId' : 'modifierExam',
 		    'ajoutExam' : 'ajoutExam',
 		    'gestionUsers' : 'gestionUsers',
 		    'ajoutUser' : 'ajoutUser',
@@ -116,6 +117,10 @@ define(
 		modifierUser: function(iduser) {
 		    this.closeActiveView();
 		    this.activeView = modifierUser.showMe(iduser);
+		},
+		modifierExam: function(examId) {
+		    this.closeActiveView();
+		    this.activeView = modifierExam.showMe(examId);
 		},
 	    });
 	    return Router;

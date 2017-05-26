@@ -91,6 +91,11 @@ public class ExamsServiceImpl implements ExamsService {
 		exam.setLevel(examsDTO.getLevel());
 		exam.setName(examsDTO.getName());
 		exam.setTime(examsDTO.getTime());
+		if(examsDTO.getIdExams() != 0){
+			exam.setIdExams(examsDTO.getIdExams());	
+			exam = examDao.addExam(exam);
+			return true;
+		}
 		exam = examDao.addExam(exam);
 		for(QuestionDTO questionDto : examsDTO.getQuestions()){
 			Question question = new Question();			
